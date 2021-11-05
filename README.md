@@ -1,4 +1,4 @@
-# Sleep with me
+# Sleep with me 시나리오
 1. 수면 탐지 -> 화면 꺼줌
 2. NUGU를 이용한 수면 도움 영상 추천
 
