@@ -1,0 +1,10 @@
+{
+    "vendor": "My Company",
+    "largeIcon": "largeIcon.png",
+    "icon": "icon.png",
+    "main": "index.html",
+    "id": "com.swm.app",
+    "title": "swm_app",
+    "type": "web",
+    "version": "0.0.1"
+}
