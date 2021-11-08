@@ -1,0 +1,16 @@
+{
+    "vendor": "My Company",
+    "largeIcon": "largeIcon.png",
+    "icon": "icon.png",
+    "main": "index.html",
+    "id": "com.swmyoutubeapp.app",
+    "title": "swmyoutubeapp",
+    "type": "web",
+    "version": "0.0.1",
+    "requiredPermissions": [
+        "time.query",
+        "activity.operation",
+        "notification.operation",
+        "all"
+    ]
+}

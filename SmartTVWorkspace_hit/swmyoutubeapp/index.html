@@ -1,0 +1,81 @@
+<!--
+Copyright (c) 2020 LG Electronics Inc.
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example Web App</title>
+<style type="text/css">
+    body {
+        background-color:#202020;
+        vertical-align: middle;
+        height: 100%;
+        width: 100%;
+    }
+    .top {
+        margin-top: 200px;
+    }
+    .mid {
+        text-align: center;
+    }
+    h1 {
+        vertical-align: middle;
+        text-align:center;
+        color:#FFFFFF;
+    }
+</style>
+
+<script type="text/javascript">
+    var bridge = new WebOSServiceBridge();
+    function toastCallback(msg) {
+        console.log("before-parse-response");
+        var response = JSON.parse(msg);
+        console.log(response);
+    }
+    function createToast() {
+        var url = 'luna://com.webos.notification/createToast';
+        
+        bridge.onservicecallback = toastCallback;
+
+        var params = {
+            "message":"hello world"
+        };
+        console.log("before-bridge.call");
+        bridge.call(url, JSON.stringify(params));
+        console.log("after-bridge.call");  
+    }
+    function alertCallback(msg) {
+        console.log("before-parse-response");
+        var response = JSON.parse(msg);
+        console.log(response);
+    }
+    function createAlert(){
+    	var url = 'luna://com.webos.notification/createAlert';
+    	bridge.onservicecallback = alertCallback;
+    	var params = {
+    			"message":"are you fine?",
+    			"buttons":[
+    			           {"label":"button1", "onclick":"luna://com.webos.service.applicationmanager/launch", "params":{"id":"com.webos.app.settings"}},
+    			           {"label":"button2", "focus":true},
+    			           {"label":"button3"}
+    			   ]
+    	};
+    	console.log("before-bridge.call");
+        bridge.call(url, JSON.stringify(params));
+        console.log("after-bridge.call");
+    }
+</script>
+</head>
+<body>
+    <div class="top">
+        <h1 id="txt_msg">Hello, Web Application!!</h1>
+    </div>
+    <div class="mid">
+        <button onclick="createToast()">create toast</button>
+        <button onclick="createAlert()">create toast</button>
+    </div>
+</body>
+</html>

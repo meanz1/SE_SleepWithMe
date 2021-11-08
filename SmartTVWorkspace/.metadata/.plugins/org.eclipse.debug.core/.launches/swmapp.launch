@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<launchConfiguration type="com.webos.ide.launcher.ui.enyoLaunchConfigurationType">
-<stringAttribute key="Application" value="swmapp"/>
-<stringAttribute key="RunPackageType" value="minify"/>
-<booleanAttribute key="ServiceRequired" value="true"/>
-<stringAttribute key="Target" value="webOS_Emulator"/>
-</launchConfiguration>

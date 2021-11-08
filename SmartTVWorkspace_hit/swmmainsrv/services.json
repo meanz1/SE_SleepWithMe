@@ -1,0 +1,9 @@
+{
+  "id": "com.swmmainapp.app.swmmainsrv",
+  "description": "HelloWorld Service",
+  "services": [
+    {
+      "name": "com.swmmainapp.app.swmmainsrv"
+    }
+  ]
+}

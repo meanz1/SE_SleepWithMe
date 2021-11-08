@@ -1,0 +1,32 @@
+<head>
+<title>Example Web App</title>
+<script type="text/javascript">
+    var bridge = new WebOSServiceBridge();
+
+    function callHello() {
+        console.log("call my service");
+        const url = 'luna://com.cosmos.team2.app.service/hello';
+        const params = {};
+        bridge.onservicecallback = (msg) => {
+            console.log(msg);
+            let res = JSON.parse(msg);
+            document.getElementById("txt_msg").innerHTML = res.Response;
+        };
+
+        bridge.call(url, JSON.stringify(params));
+    }
+
+    function callToast() {
+        console.log("call my service");
+        const url = 'luna://com.cosmos.team2.app.service/toast';
+        const params = {};
+        bridge.onservicecallback = (msg) => {
+            console.log(msg);
+            let res = JSON.parse(msg);
+            document.getElementById("txt_msg").innerHTML = res.Response;
+        };
+
+        bridge.call(url, JSON.stringify(params));
+    }
+</script>
+</head>

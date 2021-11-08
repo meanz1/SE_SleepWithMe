@@ -1,8 +1,0 @@
-INDEX VERSION 1.3+C:\Users\±è¹Î¼®\webOS_SDK\SmartTVWorkspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1961429773.index
-1270175544.index
-1563934319.index
-2403526545.index
-2782482080.index
-1656465204.index
-2045825215.index
