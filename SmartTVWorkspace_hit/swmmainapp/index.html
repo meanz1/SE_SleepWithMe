@@ -45,21 +45,35 @@ SPDX-License-Identifier: Apache-2.0
 
         bridge.call(url, JSON.stringify(params));
     }
+	function sleepOn(){
+       console.log("call my sleep");
+       const url = 'luna://com.swmmainapp.app.swmmainsrv/sleepOn';
+       const params = {};
+        bridge.onservicecallback = (msg) => {
+            console.log(msg);
+            let res = JSON.parse(msg);
+            document.getElementById("txt_msg").innerHTML = res.Response;
+        };
+
+        bridge.call(url, JSON.stringify(params));
+          
+    }
 </script>
 </head>
 <body>
-    <div>
+	<div>
         <h1 id="txt_msg">Hello, Web Application!!</h1>
         <button id="on" onclick="serviceOn()">Service On</button>
+        <button id="on" onclick="sleepOn()">Sleep On</button>
         <h2>asmr</h2>
         <iframe
-      		width="560"
-      		height="315"
-      		src="https://www.youtube.com/embed/6rT9LrvgTDw?autoplay=1"
-      		title="YouTube video player"
-      		frameborder="0"
-      		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      		allowfullscreen
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/6rT9LrvgTDw?autoplay=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
     >asmr</iframe>
     </div>
 </body>

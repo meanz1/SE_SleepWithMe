@@ -4,7 +4,17 @@ const Service = require('webos-service');
 
 const service = new Service(pkgInfo.name); // Create service by service name on package.json
 const logHeader = "[" + pkgInfo.name + "]";
-
+	service.register("sleepOn", function(message){
+   console.log('hello');
+   console.log(logHeader, message);
+   let url = "luna://com.webos.service.sleep/shutdown/machineoff";
+   let params = {
+         "reason":"remoteKey"
+   };
+   service.call(url, params, function(m2){
+        console.log(logHeader, "SERVICE_METHOD_CALLED:com.webos.service.sleep/shutdown/machineoff");
+    });
+})   
 service.register("serviceOn", function(message){
     console.log(logHeader, message);
 
@@ -13,8 +23,12 @@ service.register("serviceOn", function(message){
     let interval = setInterval(function(){
         let url = "luna://com.webos.notification/createToast";
         let params = {
-            message: "more watching?"
-        };
+              "message":"are you fine?",
+             "buttons":[
+                        {"label":"button1", "onclick":"luna://com.webos.service.applicationmanager/launch", "params":{"id":"com.webos.app.settings"}},
+                        {"label":"button2", "focus":true},
+                        {"label":"button3"}
+                ]        };
     
         service.call(url, params, function(m2){
             console.log(logHeader, "SERVICE_METHOD_CALLED:com.webos.notification/createToast");
@@ -22,13 +36,13 @@ service.register("serviceOn", function(message){
 
         if(++i > max) {
             clearInterval(interval);
-    	
-    	service.call(url, params, function(m2){
+       
+       service.call(url, params, function(m2){
             console.log(logHeader, "SERVICE_METHOD_CALLED:com.webos.notification/createToast");
         });
         }
-    }, 3000);
-
+    }, 1000);
+	
     //heartbeat 구독
     const sub = service.subscribe('luna://com.swmmainapp.app.swmmainsrv/heartbeat', {subscribe: true});
     

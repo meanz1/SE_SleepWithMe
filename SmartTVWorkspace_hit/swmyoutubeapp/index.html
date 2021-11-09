@@ -27,7 +27,6 @@ SPDX-License-Identifier: Apache-2.0
         color:#FFFFFF;
     }
 </style>
-
 <script type="text/javascript">
     var bridge = new WebOSServiceBridge();
     function toastCallback(msg) {
@@ -53,17 +52,17 @@ SPDX-License-Identifier: Apache-2.0
         console.log(response);
     }
     function createAlert(){
-    	var url = 'luna://com.webos.notification/createAlert';
-    	bridge.onservicecallback = alertCallback;
-    	var params = {
-    			"message":"are you fine?",
-    			"buttons":[
-    			           {"label":"button1", "onclick":"luna://com.webos.service.applicationmanager/launch", "params":{"id":"com.webos.app.settings"}},
-    			           {"label":"button2", "focus":true},
-    			           {"label":"button3"}
-    			   ]
-    	};
-    	console.log("before-bridge.call");
+       var url = 'luna://com.webos.notification/createAlert';
+       bridge.onservicecallback = alertCallback;
+       var params = {
+             "message":"are you fine?",
+             "buttons":[
+                        {"label":"button1", "onclick":"luna://com.webos.service.applicationmanager/launch", "params":{"id":"com.webos.app.settings"}},
+                        {"label":"button2", "focus":true},
+                        {"label":"button3"}
+                ]
+       };
+       console.log("before-bridge.call");
         bridge.call(url, JSON.stringify(params));
         console.log("after-bridge.call");
     }

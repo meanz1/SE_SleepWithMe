@@ -11,6 +11,7 @@
         "time.query",
         "activity.operation",
         "notification.operation",
-        "com.swmmainapp.app.swmmainsrv.group"
-    ]
+        "com.swmmainapp.app.swmmainsrv.group",
+		"service.sleep.operation"
+	]
 }
