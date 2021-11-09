@@ -34,11 +34,12 @@ public class TestActivity extends YouTubeBaseActivity {
     private void playVideo() {
         if(player != null) {
             if(player.isPlaying()) {
-                //player.pause();
+                player.pause();
             }
             player.cueVideo(videoId);
         }
     }
+
     //유튜브 플레이어 메서드
     private void initPlayer() {
         playerView = findViewById(R.id.youTubePlayerView);
