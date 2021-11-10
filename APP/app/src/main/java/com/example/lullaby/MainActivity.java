@@ -21,5 +21,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button recommendButton = findViewById(R.id.recommend);
+        recommendButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SelectActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
