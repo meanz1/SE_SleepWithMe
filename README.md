@@ -31,6 +31,6 @@ d. Taking advantage of TV's advantages, AI technology and IoT are utilized using
 ## Contributers
 #### Ko Eunseo, 고은서, Department of Information Systems (https://github.com/koeunseo2) <div>
 #### Kim Minji, 김민지, Department of Information Systems (https://github.com/meanz1) <div>
-#### Moon Myunggyun, 문명균, Department of Information Systems (https://github.com/11lization) <div> 
+#### Moon Myeongkyun, 문명균, Department of Information Systems (https://github.com/11lization) <div> 
 #### Yun Haeun, 윤하은, Department of Information Systems (https://github.com/LalaYun) <div>
 
