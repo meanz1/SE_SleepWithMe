@@ -1,4 +1,4 @@
-# Sleep with me
+# 💤 Sleep with me
 This project was made for the Software Engineering course at Hanyang University.<div>
 ## Abstract
 Modern people habitually watch videos through the media before sleeping. The Corona Blue phenomenon caused by COVID-19 intensified people's irregular sleep patterns, and more people couldn't sleep before going to bed and watched videos until late at night. Our team aimed to create an application that automatically provides people with the necessary functions before and after sleep, targeting LG's mobile monitor "Stand by me." Our application not only provides video recommendations and power control so that users can fall asleep, but also provides a function to maintain regular sleep time. Therefore, this helps users maintain their lifestyle. And we maximized the convenience of users by automating the functions of the application.
