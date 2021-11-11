@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lullaby">
         <activity
-            android:name=".ScreenSlideActivity"
+            android:name=".ScreenSlidePagerActivity"
             android:exported="false" />
         <activity
             android:name=".SelectActivity"
@@ -30,5 +30,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

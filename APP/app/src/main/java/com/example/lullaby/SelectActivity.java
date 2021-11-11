@@ -16,7 +16,7 @@ public class SelectActivity extends AppCompatActivity {
         ASMR_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ScreenSlidePageFragment.class);
+                Intent intent = new Intent(getApplicationContext(), ScreenSlidePagerActivity.class);
                 startActivity(intent);
             }
         });
