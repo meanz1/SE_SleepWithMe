@@ -27,7 +27,8 @@ may interfere with sleep. Therefore, after being counted as the sleep start time
 d. Taking advantage of TV's advantages, AI technology and IoT are utilized using monitor screens and sounds.
 ‘Sleep with me’ supports personalized video services that can induce sleep and enables language commands through natural language recognition. In addition, when linking with a mobile phone application through an IoT function, it provides convenience to enable alarm service and mode setting on a mobile phone.
   
-<a href='https://ifh.cc/v-5KKl4A' target='_blank'><img src='https://ifh.cc/g/5KKl4A.jpg' border='0'></a>
+## Prototype
+<a href='https://ifh.cc/v-MN6eYd' target='_blank'><img src='https://ifh.cc/g/MN6eYd.jpg' border='0'></a>
 ## Contributers
 #### Ko Eunseo, 고은서, Department of Information Systems (https://github.com/koeunseo2) <div>
 #### Kim Minji, 김민지, Department of Information Systems (https://github.com/meanz1) <div>
