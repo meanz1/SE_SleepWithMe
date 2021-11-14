@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- fragment_screen_slide_page.xml -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/content"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
 
-    <TextView style="?android:textAppearanceMedium"
-        android:padding="16dp"
-        android:lineSpacingMultiplier="1.2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="lorem_ipsum" />
-</ScrollView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="wrap_content"
+android:background="@color/white"
+android:gravity="center"
+android:layout_height="wrap_content">
 
+    <Button
+        android:id="@+id/video1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        android:text="영상1"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/video2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        android:text="영상2"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/video3"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        android:text="영상3"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/video4"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        android:text="영상4"
+        android:textColor="@color/white" />
+</LinearLayout>

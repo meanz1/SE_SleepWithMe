@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- activity_screen_slide.xml -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_marginTop="20dp"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/frameSize">
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager"
-            android:clipToPadding="false"
-            android:clipChildren="false"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/frameSize" />
-
-    </FrameLayout>
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/text_view_id"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_margin="80dp"
+        android:textSize="36sp"
+        android:text="ASMR related to daily life"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="뷰어 밑에 위치"
-        android:gravity="center"/>
+        android:layout_height="400dp"
+        android:layout_margin="20dp"/>
 
 </LinearLayout>
