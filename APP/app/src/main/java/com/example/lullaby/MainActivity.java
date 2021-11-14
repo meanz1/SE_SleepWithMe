@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import com.example.lullaby.videos.AsmrActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +27,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), SelectActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button AsmrButton = findViewById(R.id.alarm);
+        AsmrButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AsmrActivity.class);
                 startActivity(intent);
             }
         });
