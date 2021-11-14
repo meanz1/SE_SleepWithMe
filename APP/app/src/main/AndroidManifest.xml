@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lullaby">
         <activity
+            android:name=".videos.AsmrActivity"
+            android:exported="false" />
+        <activity
             android:name=".ScreenSlidePagerActivity"
             android:exported="false" />
         <activity
@@ -30,4 +33,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
