@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lullaby">
         <activity
-            android:name=".videos.AsmrActivity"
+            android:name=".videos.Asmr4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".videos.Asmr3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".videos.Asmr2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".videos.Asmr1Activity"
             android:exported="false" />
         <activity
             android:name=".ScreenSlidePagerActivity"

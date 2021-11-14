@@ -6,35 +6,39 @@ android:background="@color/white"
 android:gravity="center"
 android:layout_height="wrap_content">
 
-    <Button
+    <ImageButton
         android:id="@+id/video1"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_margin="20dp"
-        android:text="영상1"
-        android:textColor="@color/white" />
+        android:src="@drawable/asmr1"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"/>
 
     <ImageButton
         android:id="@+id/video2"
         android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_margin="20dp"
-        android:src="@drawable/asmr1"
-        android:scaleType="fitXY"/>
+        android:src="@drawable/asmr2"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/video3"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_margin="20dp"
-        android:text="영상3"
-        android:textColor="@color/white" />
+        android:src="@drawable/asmr3"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/video4"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_margin="20dp"
-        android:text="영상4"
-        android:textColor="@color/white" />
+        android:src="@drawable/asmr4"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"/>
 </LinearLayout>
