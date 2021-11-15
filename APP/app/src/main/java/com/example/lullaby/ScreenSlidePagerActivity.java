@@ -57,7 +57,12 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
 
         @Override
         public Fragment createFragment(int position) {
-            return new ScreenSlidePageFragment();
+            switch (position){
+                case 1:
+                    return new ScreenSlidePageFragment();
+                default :
+                    return new ScreenSlidePageFragment();
+            }
         }
 
         @Override

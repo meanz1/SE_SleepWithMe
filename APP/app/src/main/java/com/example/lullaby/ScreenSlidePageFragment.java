@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.lullaby.videos.Asmr1Activity;
 
 public class ScreenSlidePageFragment extends Fragment implements View.OnClickListener{
-    String id;
+    String id = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,8 +29,8 @@ public class ScreenSlidePageFragment extends Fragment implements View.OnClickLis
         ImageButton btn4 = (ImageButton)view.findViewById(R.id.video4);
         btn4.setOnClickListener(this);
 
-        id = "-3hxDkxuyD4";
-        //for
+        id = "Fbz4GTDLLnQ";
+
         Glide.with(this)
                 .load("https://img.youtube.com/vi/" + id + "default.jpg")
                 .into(btn1);
@@ -44,16 +44,16 @@ public class ScreenSlidePageFragment extends Fragment implements View.OnClickLis
         Intent intent = new Intent(getActivity(), Asmr1Activity.class);
         switch (v.getId()){
             case R.id.video1:
-                intent.putExtra("videoId", id);
+                intent.putExtra("videoId", "Fbz4GTDLLnQ");
                 break;
             case R.id.video2:
-                intent.putExtra("videoId", "p2fxv3PAtLU");
+                intent.putExtra("videoId", "Fbz4GTDLLnQ");
                 break;
             case R.id.video3:
-                intent.putExtra("videoId", "p2fxv3PAtLU");
+                intent.putExtra("videoId", "Fbz4GTDLLnQ");
                 break;
             case R.id.video4:
-                intent.putExtra("videoId", "p2fxv3PAtLU");
+                intent.putExtra("videoId", "Fbz4GTDLLnQ");
                 break;
         }
         getActivity().startActivity(intent);
