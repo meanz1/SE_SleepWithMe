@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lullaby">
         <activity
-            android:name=".videos.Asmr1Activity"
+            android:name=".asmr.AsmrVideoActivity"
             android:exported="false" />
         <activity
-            android:name=".ScreenSlidePagerActivity"
+            android:name=".asmr.AsmrPagerActivity"
             android:exported="false" />
         <activity
             android:name=".SelectActivity"

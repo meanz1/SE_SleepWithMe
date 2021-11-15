@@ -1,4 +1,4 @@
-package com.example.lullaby;
+package com.example.lullaby.asmr;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -6,11 +6,13 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-public class ScreenSlidePagerActivity extends FragmentActivity {
+import com.example.lullaby.R;
+
+public class AsmrPagerActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 2;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -26,11 +28,11 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_slide);
+        setContentView(R.layout.activity_asmr_pager);
 
         // Instantiate a ViewPager2 and a PagerAdapter.
         viewPager = findViewById(R.id.pager);
-        pagerAdapter = new ScreenSlidePagerAdapter(this);
+        pagerAdapter = new AsmrPagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
     }
 
@@ -50,18 +52,18 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
      * sequence.
      */
-    private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
-        public ScreenSlidePagerAdapter(FragmentActivity fa) {
+    private class AsmrPagerAdapter extends FragmentStateAdapter {
+        public AsmrPagerAdapter(FragmentActivity fa) {
             super(fa);
         }
 
         @Override
         public Fragment createFragment(int position) {
             switch (position){
-                case 1:
-                    return new ScreenSlidePageFragment();
+                case 0 :
+                    return new AsmrFragment1();
                 default :
-                    return new ScreenSlidePageFragment();
+                    return new AsmrFragment2();
             }
         }
 
