@@ -8,12 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.bumptech.glide.Glide;
 import com.example.lullaby.videos.Asmr1Activity;
-import com.example.lullaby.videos.Asmr2Activity;
-import com.example.lullaby.videos.Asmr3Activity;
-import com.example.lullaby.videos.Asmr4Activity;
 
 public class ScreenSlidePageFragment extends Fragment implements View.OnClickListener{
+    String id;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,25 +28,35 @@ public class ScreenSlidePageFragment extends Fragment implements View.OnClickLis
         btn3.setOnClickListener(this);
         ImageButton btn4 = (ImageButton)view.findViewById(R.id.video4);
         btn4.setOnClickListener(this);
+
+        id = "-3hxDkxuyD4";
+        //for
+        Glide.with(this)
+                .load("https://img.youtube.com/vi/" + id + "default.jpg")
+                .into(btn1);
+
         return view;
 
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent(getActivity(), Asmr1Activity.class);
         switch (v.getId()){
             case R.id.video1:
-                getActivity().startActivity(new Intent(getActivity(), Asmr1Activity.class));
+                intent.putExtra("videoId", id);
                 break;
             case R.id.video2:
-                getActivity().startActivity(new Intent(getActivity(), Asmr2Activity.class));
+                intent.putExtra("videoId", "p2fxv3PAtLU");
                 break;
             case R.id.video3:
-                getActivity().startActivity(new Intent(getActivity(), Asmr3Activity.class));
+                intent.putExtra("videoId", "p2fxv3PAtLU");
                 break;
             case R.id.video4:
-                getActivity().startActivity(new Intent(getActivity(), Asmr4Activity.class));
+                intent.putExtra("videoId", "p2fxv3PAtLU");
                 break;
         }
+        getActivity().startActivity(intent);
     }
+
 }

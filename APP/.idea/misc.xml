@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24947916666666667" />
         <entry key="app/src/main/res/drawable/recommend_buttonshape.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/drawable/recommend_buttonshape2.xml" value="0.198828125" />
         <entry key="app/src/main/res/layout/activity_asmr.xml" value="0.1897644927536232" />
         <entry key="app/src/main/res/layout/activity_asmr1.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_asmr2.xml" value="0.20380434782608695" />

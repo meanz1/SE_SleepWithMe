@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        String name = "은서";
         TextView openingWord = findViewById(R.id.opening_word);
-        openingWord.setText("명균님 안녕하세요");
+        openingWord.setText(name + "님 안녕하세요");
     }
 }
