@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import com.example.lullaby.videos.Asmr1Activity;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,5 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TextView openingWord = findViewById(R.id.opening_word);
+        openingWord.setText("명균님 안녕하세요");
     }
 }
