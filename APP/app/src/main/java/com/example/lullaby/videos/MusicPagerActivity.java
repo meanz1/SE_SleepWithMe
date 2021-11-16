@@ -1,4 +1,4 @@
-package com.example.lullaby.asmr;
+package com.example.lullaby.videos;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.lullaby.R;
 
-public class AsmrPagerActivity extends FragmentActivity {
+public class MusicPagerActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -28,11 +28,11 @@ public class AsmrPagerActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_asmr_pager);
+        setContentView(R.layout.activity_music_pager);
 
         // Instantiate a ViewPager2 and a PagerAdapter.
         viewPager = findViewById(R.id.pager);
-        pagerAdapter = new AsmrPagerAdapter(this);
+        pagerAdapter = new MusicPagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
     }
 
@@ -52,8 +52,8 @@ public class AsmrPagerActivity extends FragmentActivity {
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
      * sequence.
      */
-    private class AsmrPagerAdapter extends FragmentStateAdapter {
-        public AsmrPagerAdapter(FragmentActivity fa) {
+    private class MusicPagerAdapter extends FragmentStateAdapter {
+        public MusicPagerAdapter(FragmentActivity fa) {
             super(fa);
         }
 
@@ -61,9 +61,9 @@ public class AsmrPagerActivity extends FragmentActivity {
         public Fragment createFragment(int position) {
             switch (position){
                 case 0 :
-                    return new AsmrFragment1();
+                    return new MusicFragment1();
                 default :
-                    return new AsmrFragment2();
+                    return new MusicFragment2();
             }
         }
 

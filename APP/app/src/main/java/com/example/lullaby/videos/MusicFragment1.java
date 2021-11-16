@@ -1,4 +1,4 @@
-package com.example.lullaby.asmr;
+package com.example.lullaby.videos;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,14 @@ import android.widget.ImageButton;
 import com.bumptech.glide.Glide;
 import com.example.lullaby.R;
 
-public class AsmrFragment1 extends Fragment implements View.OnClickListener{
+public class MusicFragment1 extends Fragment implements View.OnClickListener{
     public String[] id = new String[4];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = (ViewGroup) inflater.inflate(
-                R.layout.fragment_asmr_1, container, false);
+                R.layout.fragment_music1, container, false);
 
         ImageButton btn1 = (ImageButton)view.findViewById(R.id.video1);
         btn1.setOnClickListener(this);
@@ -29,10 +29,10 @@ public class AsmrFragment1 extends Fragment implements View.OnClickListener{
         ImageButton btn4 = (ImageButton)view.findViewById(R.id.video4);
         btn4.setOnClickListener(this);
 
-        id[0] = "Fbz4GTDLLnQ";
-        id[1] = "-3hxDkxuyD4";
-        id[2] = "5QGxUg7MkHo";
-        id[3] = "vqE7WKq2S0k";
+        id[0] = "p2fxv3PAtLU";
+        id[1] = "zNAnHtTeBWM";
+        id[2] = "0R8qxx-Ltc8";
+        id[3] = "02wmsjthNnM";
 
         Glide.with(this)
                 .load("https://img.youtube.com/vi/" + id[0] + "/default.jpg")
@@ -52,7 +52,7 @@ public class AsmrFragment1 extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(getActivity(), AsmrVideoActivity.class);
+        Intent intent = new Intent(getActivity(), VideoActivity.class);
         switch (v.getId()){
             case R.id.video1:
                 intent.putExtra("videoId", id[0]);

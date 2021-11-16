@@ -1,4 +1,4 @@
-package com.example.lullaby.asmr;
+package com.example.lullaby.videos;
 import com.example.lullaby.R;
 
 import android.content.Intent;
@@ -8,13 +8,13 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
-
-public class AsmrVideoActivity extends YouTubeBaseActivity {
+// videoID에 맞는 유튜브 영상 출력
+public class VideoActivity extends YouTubeBaseActivity {
     String videoId = "";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_asmr_video);
+        setContentView(R.layout.activity_video);
 
         Intent intent = getIntent();
         videoId = intent.getStringExtra("videoId");

@@ -1,39 +1,38 @@
-package com.example.lullaby.asmr;
+package com.example.lullaby.videos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import androidx.fragment.app.Fragment;
-
 import com.bumptech.glide.Glide;
 import com.example.lullaby.R;
 
-public class AsmrFragment2 extends Fragment implements View.OnClickListener{
+public class AsmrFragment1 extends Fragment implements View.OnClickListener{
     public String[] id = new String[4];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = (ViewGroup) inflater.inflate(
-                R.layout.fragment_asmr_2, container, false);
+                R.layout.fragment_asmr_1, container, false);
 
-        ImageButton btn1 = (ImageButton)view.findViewById(R.id.video5);
+        ImageButton btn1 = (ImageButton)view.findViewById(R.id.video1);
         btn1.setOnClickListener(this);
-        ImageButton btn2 = (ImageButton)view.findViewById(R.id.video6);
+        ImageButton btn2 = (ImageButton)view.findViewById(R.id.video2);
         btn2.setOnClickListener(this);
-        ImageButton btn3 = (ImageButton)view.findViewById(R.id.video7);
+        ImageButton btn3 = (ImageButton)view.findViewById(R.id.video3);
         btn3.setOnClickListener(this);
-        ImageButton btn4 = (ImageButton)view.findViewById(R.id.video8);
+        ImageButton btn4 = (ImageButton)view.findViewById(R.id.video4);
         btn4.setOnClickListener(this);
 
-        id[0] = "aL2EwBDPhmg";
-        id[1] = "IJCWC6JSTUA";
-        id[2] = "LMsUjtbro9s";
-        id[3] = "q7tb1OciN_Y";
+        id[0] = "Fbz4GTDLLnQ";
+        id[1] = "-3hxDkxuyD4";
+        id[2] = "5QGxUg7MkHo";
+        id[3] = "vqE7WKq2S0k";
 
         Glide.with(this)
                 .load("https://img.youtube.com/vi/" + id[0] + "/default.jpg")
@@ -53,18 +52,18 @@ public class AsmrFragment2 extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(getActivity(), AsmrVideoActivity.class);
+        Intent intent = new Intent(getActivity(), VideoActivity.class);
         switch (v.getId()){
-            case R.id.video5:
+            case R.id.video1:
                 intent.putExtra("videoId", id[0]);
                 break;
-            case R.id.video6:
+            case R.id.video2:
                 intent.putExtra("videoId", id[1]);
                 break;
-            case R.id.video7:
+            case R.id.video3:
                 intent.putExtra("videoId", id[2]);
                 break;
-            case R.id.video8:
+            case R.id.video4:
                 intent.putExtra("videoId", id[3]);
                 break;
         }
