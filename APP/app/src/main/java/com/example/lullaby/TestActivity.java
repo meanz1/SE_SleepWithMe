@@ -1,84 +1,50 @@
 package com.example.lullaby;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.os.Handler;
 
-import androidx.annotation.Nullable;
 
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
-public class TestActivity extends YouTubeBaseActivity {
-    //객체 선언
-    YouTubePlayerView playerView;
-    YouTubePlayer player;
-    //유튜브 API KEY와 동영상 ID 변수 설정
-    private static String API_KEY = "AIzaSyCSpis5WboAqaFaNmont1RwSMZ-V2aV_KI";
-    //https://www.youtube.com/watch?v=hl-ii7W4ITg ▶ 유튜브 동영상 v= 다음 부분이 videoId
-    private static String videoId = "jf_OJ2XTbTI";
-    //logcat 사용 설정
-    private static final String TAG = "TestActivity";
+public class TestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        initPlayer();
-        Button btnPlay = findViewById(R.id.youtubeBtn);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("수면 알리미");
+        builder.setMessage("주무시나요?");
+        builder.setNeutralButton("알림 끌래요", null);
+        builder.setPositiveButton("안 자요", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                playVideo();
+            public void onClick(DialogInterface dialog, int which) {
+                againAlert(5000, builder.create());
             }
         });
+        AlertDialog sleepAlert;
+        sleepAlert = builder.create();
+        sleepAlert.show();
     }
-    private void playVideo() {
-        if(player != null) {
-            if(player.isPlaying()) {
-                player.pause();
+    //n시간 뒤 알림 다시띄워주는 함수
+    public void againAlert(long time, AlertDialog d){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                d.show();
             }
-            player.cueVideo(videoId);
-        }
+        }, time);
     }
-
-    //유튜브 플레이어 메서드
-    private void initPlayer() {
-        playerView = findViewById(R.id.youTubePlayerView);
-        playerView.initialize(API_KEY, new YouTubePlayer.OnInitializedListener() {
+    //알림창 지속시간 설정 함수
+    public void delayTime(long time, final AlertDialog d){
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                player = youTubePlayer;
-                player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
-                    @Override
-                    public void onLoading() {
-                    }
-                    @Override
-                    public void onLoaded(String id) {
-                        Log.d(TAG, "onLoaded: " + id);
-                        player.play();
-                    }
-                    @Override
-                    public void onAdStarted() {
-                    }
-                    @Override
-                    public void onVideoStarted() {
-                    }
-                    @Override
-                    public void onVideoEnded() {
-                    }
-                    @Override
-                    public void onError(YouTubePlayer.ErrorReason errorReason) {
-                        Log.d(TAG, "onError: " + errorReason);
-                    }
-                });
+            public void run() {
+                d.dismiss();
             }
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-            }
-        });
+        }, time);
     }
 }
-
