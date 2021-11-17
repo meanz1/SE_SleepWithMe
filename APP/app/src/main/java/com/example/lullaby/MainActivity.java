@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.lullaby.videos.VideoActivity;
 
@@ -16,7 +17,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final ToggleButton toggleButton =
+                (ToggleButton) this.findViewById(R.id.toggleButton);
         Button nextButton = findViewById(R.id.btn1);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toggleButton.isChecked()){
+                    toggleButton.setBackgroundDrawable(
+                            getResources().
+                                    getDrawable(R.drawable.on)
+                    );
+                }else{
+                    toggleButton.setBackgroundDrawable(
+                            getResources().
+                                    getDrawable(R.drawable.off)
+                    );
+                }
+            }
+        });
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
