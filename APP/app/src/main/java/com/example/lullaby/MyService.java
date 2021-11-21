@@ -15,9 +15,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 public class MyService extends Service {
-    NotificationManager Notifi_M;
     ServiceThread thread;
-    Notification Notifi ;
 
     @Override
     public void onCreate(){
@@ -30,10 +28,15 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Notifi_M = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        myServiceHandler handler = new myServiceHandler();
-        thread = new ServiceThread(handler);
-        thread.start();
+        Handler delay_handler = new Handler();
+        delay_handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                myServiceHandler handler = new myServiceHandler();
+                thread = new ServiceThread(handler);
+                thread.start();
+            }
+        }, 10000);
         return START_STICKY;
     }
 
@@ -49,8 +52,6 @@ public class MyService extends Service {
         @Override
         public void handleMessage(android.os.Message msg) {
             ((MainActivity)MainActivity.mContext).createNotification(((MainActivity)MainActivity.mContext).DEFAULT, 1, "sleep alert", "주무시나요?");
-            //토스트 띄우기
-            //Toast.makeText(MyService.this, "떳냐?", Toast.LENGTH_LONG).show();
         }
     };
 }

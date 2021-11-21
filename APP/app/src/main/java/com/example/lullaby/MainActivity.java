@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //create NotiChannel
         createNotificationChannel(DEFAULT, "default channel", NotificationManager.IMPORTANCE_HIGH);
-        //createNotification(DEFAULT, 1, "title", "text");
         setContentView(R.layout.activity_main);
 
         mContext = this;
@@ -38,11 +37,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(toggleButton.isChecked()){
+                    Toast.makeText(getApplicationContext(),"수면모드 시작",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this,MyService.class);
+                    startService(intent);
                     toggleButton.setBackgroundDrawable(
                             getResources().
                                     getDrawable(R.drawable.on)
                     );
                 }else{
+                    Toast.makeText(getApplicationContext(),"수면모드 종료",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this,MyService.class);
+                    stopService(intent);
                     toggleButton.setBackgroundDrawable(
                             getResources().
                                     getDrawable(R.drawable.off)
@@ -83,7 +88,17 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(new NotificationChannel(channelId, channelName, importance));
         }
     }
+
     void createNotification(String channelId, int id, String title, String text) {
+        //작업버튼 + 브로드캐스트
+        Intent keepIntent = new Intent(this, MyBroadcastReceiver.class);
+        keepIntent.setAction("keep"); // 브로드캐스트에 보낼 액션
+        PendingIntent keepPendingIntent = PendingIntent.getBroadcast(this, 0 , keepIntent, 0);
+
+        Intent stopIntent = new Intent(this, MyBroadcastReceiver.class);
+        stopIntent.setAction("stop");
+        PendingIntent stopPendingIntent = PendingIntent.getBroadcast(this, 0 , stopIntent, 0);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
@@ -91,32 +106,20 @@ public class MainActivity extends AppCompatActivity {
                 .setContentText(text)
                 .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
                 .setTimeoutAfter(10000) // 몇초후에 꺼질건지?
-                .addAction(makeButtonInNotification("Keep"))
-                .addAction(makeButtonInNotification("Pause"));
-        switch (getIntent().getAction()){
-            case "Keep":
-                Toast.makeText(this, "안 자요", Toast.LENGTH_SHORT).show();
-                break;
-            case "Pause":
-                Toast.makeText(this, "알람 중지", Toast.LENGTH_SHORT).show();
-                break;
-        }
+                .addAction(android.R.drawable.ic_menu_close_clear_cancel, "안 자요", keepPendingIntent) // 알림창 버튼 등록
+                .addAction(android.R.drawable.ic_menu_close_clear_cancel, "수면모드 끄기", stopPendingIntent)
+                .setAutoCancel(true); // 알림 탭하면 알림 자동 삭제
+
+
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(id, builder.build());
     }
+
     void destroyNotification(int id){
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(id);
     }
-    private NotificationCompat.Action makeButtonInNotification(String action){
-        Intent intent = new Intent(getBaseContext(), MyService.class);
-        intent.setAction(action);
-        PendingIntent pendingIntent = PendingIntent.getService(getBaseContext(),1, intent, 0);
-        int iconId = android.R.drawable.ic_media_pause;
-        String btnTitle = action;
 
-        NotificationCompat.Action notifAction = new NotificationCompat.Action.Builder(iconId, btnTitle, pendingIntent).build();
-        return  notifAction;
-    }
+
 
 }
