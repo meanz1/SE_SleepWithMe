@@ -6,10 +6,11 @@ SPDX-License-Identifier: Apache-2.0
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="refresh" content="34;url=off.html">
 <title>Example Web App</title>
 <style type="text/css">
     body {
-        background-image:url('bgimg.png');
+        background-image:url('bgimage.png');
         
         height: 100%;
         width: 100%;
@@ -79,21 +80,19 @@ SPDX-License-Identifier: Apache-2.0
     var count = 0
     var url = 'luna://com.webos.notification/createToast';
     var params = {
-            "message":"Are you sleeping?"
+            "message":"ì€ì„œë‹˜, ì£¼ë¬´ì‹œë‚˜ìš”?"
         };
     var elseparams = {
-    		"message":"not hello"
+    		"message":"ì¢‹ì€ ê¿ˆ ê¾¸ì„¸ìš”"
     };
     function toastCallback(msg) {
         console.log("before-parse-response");
         var response = JSON.parse(msg);
         console.log(response);
-        
-        
     }
-    function sleeping(){
+    
     	
-    	document.getElementById("icon").style.backgroundColor = "black"
+    	
     	
     	createToast = setInterval(function(){
     		bridge.onservicecallback = toastCallback;
@@ -102,16 +101,13 @@ SPDX-License-Identifier: Apache-2.0
             console.log("after-bridge.call");
             cnt = cnt + 1;
             count++;
-            if (count == 15){
+            if (count == 7){
+            	bridge.call(url, JSON.stringify(elseparams));
             	clearInterval(createToast);
-            	
-            	document.getElementById("txt_msg").innerHTML="°ğ ²¨Áü";
-            	
+            	document.getElementById("txt_msg").innerHTML="ê³§ êº¼ì§";
             }
-  			
-    	
     }, 4000)
-    }
+    
     
 
     
@@ -120,15 +116,16 @@ SPDX-License-Identifier: Apache-2.0
 <body>
 	<div class="up">
 		<div id="title">ASMR</div>
-		<div id="icon" onclick="sleeping()">sleep</div>
+		
 	</div>
 	
 	<div class="video">
 		<br>
-		<div id="txt_msg">ºÒ, ÀÏ»ó°ú °ü·ÃµÈ ASMR</div>
-		<div id="v1">ex1</div>
-		<div id="v2">ex2</div>
-		<div id="v3">ex3</div>
+		<div id="txt_msg">ìˆ˜ë©´ì— ë„ì›€ì´ ë˜ëŠ” ASMR</div>
+		<iframe id="v1" src="https://www.youtube.com/embed/200Evg4ndJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe id="v2" src="https://www.youtube.com/embed/Egwxr9Hvls4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe id="v3" src="https://www.youtube.com/embed/55U1tH8jXfU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 	</div>
     
 </body>
