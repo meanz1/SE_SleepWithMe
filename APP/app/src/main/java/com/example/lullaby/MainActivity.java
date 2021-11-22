@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     boolean isService = false ; // 서비스중인지 확인하는 변수
     public final String DEFAULT = "DEFAULT";
     public static Context mContext;
-    boolean yetSleep = false;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
@@ -48,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         //create NotiChannel
         createNotificationChannel(DEFAULT, "default channel", NotificationManager.IMPORTANCE_HIGH);
         setContentView(R.layout.activity_main);
-
         mContext = this;
         final ToggleButton toggleButton =
                 (ToggleButton) this.findViewById(R.id.toggleButton);
@@ -56,9 +54,10 @@ public class MainActivity extends AppCompatActivity {
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,MyService.class);
+                //Intent intent = new Intent(MainActivity.this,MyService.class);
                 if(toggleButton.isChecked()){
                     Toast.makeText(getApplicationContext(),"수면모드 시작",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this,MyService.class);
                     bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
                     Log.v("asdf","연결하는중");
                     // 서비스
@@ -72,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     );
                 }else{
                     Toast.makeText(getApplicationContext(),"수면모드 종료",Toast.LENGTH_SHORT).show();
+                    GlobalVariable.getInstance().setYetSleep(true); // 화면꺼짐 실행안되게
                     unbindService(conn); // 서비스 종료
                     toggleButton.setBackgroundDrawable(
                             getResources().
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
-                .setTimeoutAfter(10000) // 몇초후에 꺼질건지?
+                .setTimeoutAfter(8000) // 몇초후에 꺼질건지?
                 .addAction(android.R.drawable.ic_menu_close_clear_cancel, "안 자요", keepPendingIntent) // 알림창 버튼 등록
                 .addAction(android.R.drawable.ic_menu_close_clear_cancel, "수면모드 끄기", stopPendingIntent)
                 .setAutoCancel(true); // 알림 탭하면 알림 자동 삭제
@@ -143,6 +143,13 @@ public class MainActivity extends AppCompatActivity {
     void destroyNotification(int id){
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(id);
+    }
+    void sleepScreen(){ // 수면중 화면
+        Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+        startActivity(intent);
+    }
+    void endService(){
+        unbindService(conn);
     }
 
 }

@@ -26,12 +26,12 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
                     GlobalVariable.getInstance().getMs().sleepAlert();
                 }
             }, 10000);
-            //Intent intent = new Intent(context,MyService.class);
         }
         else if(intent.getAction() == "stop"){
             Toast.makeText(context, "수면모드 종료", Toast.LENGTH_LONG).show();
-            Intent sintent = new Intent(context,MyService.class);
-            context.stopService(sintent);
+            GlobalVariable.getInstance().setYetSleep(true);
+            //GlobalVariable.getInstance().getMs().onDestroy();
+            ((MainActivity)MainActivity.mContext).endService();
         }
     }
 }

@@ -17,7 +17,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 public class MyService extends Service {
-    ServiceThread thread;
     IBinder mBinder = new MyBinder();
     @Override
     public void onCreate(){
@@ -46,26 +45,12 @@ public class MyService extends Service {
                     Toast.makeText(getApplicationContext(),"화면이 곧 꺼집니다...",Toast.LENGTH_SHORT).show();
                     Intent sintent = new Intent(((MainActivity)MainActivity.mContext),MyService.class);
                     ((MainActivity)MainActivity.mContext).stopService(sintent);
+                    ((MainActivity)MainActivity.mContext).sleepScreen(); // TestActivity(수면중 화면으로 넘어감)
                 }
                 GlobalVariable.getInstance().setYetSleep(false);
             }}, 10000); // n초 지연 후 알림 뜨게
     }
-   /*
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Handler delay_handler = new Handler();
-        delay_handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                myServiceHandler handler = new myServiceHandler();
-                thread = new ServiceThread(handler);
-                thread.start();
-            }
-        }, 10000);
-        return START_STICKY;
-    }
-*/
-    //서비스가 종료될 때 할 작업
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -77,12 +62,5 @@ public class MyService extends Service {
         return START_STICKY;
     }
 
-    class myServiceHandler extends Handler {
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        @Override
-        public void handleMessage(android.os.Message msg) {
-            ((MainActivity)MainActivity.mContext).createNotification(((MainActivity)MainActivity.mContext).DEFAULT, 1, "sleep alert", "주무시나요?");
-        }
-    };
 }
 
