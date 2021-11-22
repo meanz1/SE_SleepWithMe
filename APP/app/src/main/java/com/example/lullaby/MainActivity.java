@@ -60,11 +60,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this,MyService.class);
                     bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
                     Log.v("asdf","연결하는중");
-                    // 서비스
-                    if(isService){
-                        GlobalVariable.getInstance().getMs().sleepAlert();
-                        Log.d("asdf","잘됨");
-                    }
                     toggleButton.setBackgroundDrawable(
                             getResources().
                                     getDrawable(R.drawable.on)
@@ -73,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"수면모드 종료",Toast.LENGTH_SHORT).show();
                     GlobalVariable.getInstance().setYetSleep(true); // 화면꺼짐 실행안되게
                     unbindService(conn); // 서비스 종료
+                    GlobalVariable.getInstance().getMs().onDestroy();
                     toggleButton.setBackgroundDrawable(
                             getResources().
                                     getDrawable(R.drawable.off)
@@ -151,5 +147,6 @@ public class MainActivity extends AppCompatActivity {
     void endService(){
         unbindService(conn);
     }
+
 
 }

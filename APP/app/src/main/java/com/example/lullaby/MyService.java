@@ -21,6 +21,20 @@ public class MyService extends Service {
     @Override
     public void onCreate(){
         super.onCreate();
+        ((MainActivity)MainActivity.mContext).createNotification(((MainActivity)MainActivity.mContext).DEFAULT, 1, "sleep alert", "주무시나요?");
+        Handler delay_handler = new Handler();
+        Log.d("asdf", "MyService in if " + GlobalVariable.getInstance().getYetSleep());
+        delay_handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(!GlobalVariable.getInstance().getYetSleep()){
+                    Toast.makeText(getApplicationContext(),"화면이 곧 꺼집니다...",Toast.LENGTH_SHORT).show();
+                    Intent sintent = new Intent(((MainActivity)MainActivity.mContext),MyService.class);
+                    ((MainActivity)MainActivity.mContext).stopService(sintent);
+                    ((MainActivity)MainActivity.mContext).sleepScreen(); // TestActivity(수면중 화면으로 넘어감)
+                }
+                GlobalVariable.getInstance().setYetSleep(false);
+            }}, 10000);
     }
     @Override
     public IBinder onBind(Intent intent) {
