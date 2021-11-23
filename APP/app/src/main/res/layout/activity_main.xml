@@ -15,9 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="50dp"
-            android:text="은서님 안녕하세요"
-            android:layout_marginLeft="120dp"
+            android:textSize="48dp"
+            android:text="고은서님,\n오늘도 좋은 밤 되세요"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="110dp"
             android:layout_marginBottom="140dp"
             android:layout_weight="1"/>
@@ -35,50 +36,39 @@
         />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
         android:background="@android:color/transparent"
         android:gravity="center">
 
-        <Button
+        <ImageButton
             android:id="@+id/btn1"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginHorizontal="50dp"
-            android:text="계정"
-            android:textSize="45dp"
-            android:textColor="@color/white"
-            android:background="@drawable/recommend_buttonshape2"/>
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/home_account"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/recommend"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginHorizontal="50dp"
-            android:text="추천"
-            android:textSize="45dp"
-            android:textColor="@color/white"
-            android:background="@drawable/recommend_buttonshape2"/>
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/home_recomm"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/alarm"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginHorizontal="50dp"
-            android:text="알람"
-            android:textSize="45dp"
-            android:textColor="@color/white"
-            android:background="@drawable/recommend_buttonshape2"/>
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/home_alarm"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/myData"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginHorizontal="50dp"
-            android:text="My data"
-            android:textSize="30dp"
-            android:textColor="@color/white"
-            android:background="@drawable/recommend_buttonshape2"/>
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/home_mydata"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -17,6 +17,7 @@ import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
         final ToggleButton toggleButton =
                 (ToggleButton) this.findViewById(R.id.toggleButton);
-        Button nextButton = findViewById(R.id.btn1);
+        ImageButton nextButton = findViewById(R.id.btn1);
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button recommendButton = findViewById(R.id.recommend);
+        ImageButton recommendButton = findViewById(R.id.recommend);
         recommendButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button AsmrButton = findViewById(R.id.alarm);
+        ImageButton AsmrButton = findViewById(R.id.alarm);
         AsmrButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -105,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
         mDbOpenHelper.open();
         mDbOpenHelper.create();
 
-        String name = "은서";
+        String name = "고은서";
         TextView openingWord = findViewById(R.id.opening_word);
-        openingWord.setText(name + "님 안녕하세요");
+        openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
     }
     void createNotificationChannel(String channelId, String channelName,int importance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
