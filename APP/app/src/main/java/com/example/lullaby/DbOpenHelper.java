@@ -53,7 +53,7 @@ public class DbOpenHelper {
     }
 
     // Insert DB
-    public long insertColumn(String userid, String name, long age , String gender){
+    public long insertColumn(String name, long age , String gender){
         ContentValues values = new ContentValues();
         values.put(Database.CreateDB.NAME, name);
         values.put(Database.CreateDB.GENDER, gender);
@@ -62,7 +62,7 @@ public class DbOpenHelper {
     }
 
     // Update DB
-    public boolean updateColumn(long id, String userid, String name, long age , String gender){
+    public boolean updateColumn(long id, String name, long age , String gender){
         ContentValues values = new ContentValues();
         values.put(Database.CreateDB.NAME, name);
         values.put(Database.CreateDB.GENDER, gender);

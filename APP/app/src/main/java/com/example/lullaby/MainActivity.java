@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isService = false ; // 서비스중인지 확인하는 변수
     public final String DEFAULT = "DEFAULT";
     public static Context mContext;
+    private DbOpenHelper mDbOpenHelper;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
@@ -99,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mDbOpenHelper = new DbOpenHelper(this);
+        mDbOpenHelper.open();
+        mDbOpenHelper.create();
+
         String name = "은서";
         TextView openingWord = findViewById(R.id.opening_word);
         openingWord.setText(name + "님 안녕하세요");

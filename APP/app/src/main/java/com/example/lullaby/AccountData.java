@@ -5,7 +5,7 @@ public class AccountData {
     private static AccountData accountData = null;
     private String name;
     private String gender;
-    private int birth;
+    private int age;
 
     public String getName(){
         return name;
@@ -16,7 +16,7 @@ public class AccountData {
     }
 
     public int getBirth(){
-        return birth;
+        return age;
     }
 
     public void setName(String name){
@@ -27,8 +27,8 @@ public class AccountData {
         this.gender = gender;
     }
 
-    public void setBirth(int birth){
-        this.birth = birth;
+    public void setBirth(int age){
+        this.age = age;
     }
 
     public static synchronized AccountData getInstance(){
