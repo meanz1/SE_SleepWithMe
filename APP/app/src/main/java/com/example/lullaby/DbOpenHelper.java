@@ -24,12 +24,16 @@ public class DbOpenHelper {
 
         @Override
         public void onCreate(SQLiteDatabase db){
-            db.execSQL(Database.CreateDB._CREATE);
+            db.execSQL(Database.CreateAccount._CREATE);
+            db.execSQL(Database.CreatePreference._CREATE);
+            db.execSQL(Database.CreateRecord._CREATE);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS "+Database.CreateDB._TABLENAME);
+            db.execSQL("DROP TABLE IF EXISTS "+Database.CreateAccount._TABLENAME);
+            db.execSQL("DROP TABLE IF EXISTS "+Database.CreatePreference._TABLENAME);
+            db.execSQL("DROP TABLE IF EXISTS "+Database.CreateRecord._TABLENAME);
             onCreate(db);
         }
     }
@@ -53,35 +57,42 @@ public class DbOpenHelper {
     }
 
     // Insert DB
-    public long insertColumn(String name, long age , String gender){
+    public long insertAccountColumn(String name, String gender, long age){
         ContentValues values = new ContentValues();
-        values.put(Database.CreateDB.NAME, name);
-        values.put(Database.CreateDB.GENDER, gender);
-        values.put(Database.CreateDB.AGE, age);
-        return mDB.insert(Database.CreateDB._TABLENAME, null, values);
+        values.put(Database.CreateAccount.NAME, name);
+        values.put(Database.CreateAccount.GENDER, gender);
+        values.put(Database.CreateAccount.AGE, age);
+        return mDB.insert(Database.CreateAccount._TABLENAME, null, values);
+    }
+
+    public long insertPreferenceColumn(String name, String category){
+        ContentValues values = new ContentValues();
+        values.put(Database.CreatePreference.accountName, name);
+        values.put(Database.CreatePreference.category, category);
+        return mDB.insert(Database.CreatePreference._TABLENAME, null, values);
     }
 
     // Update DB
     public boolean updateColumn(long id, String name, long age , String gender){
         ContentValues values = new ContentValues();
-        values.put(Database.CreateDB.NAME, name);
-        values.put(Database.CreateDB.GENDER, gender);
-        values.put(Database.CreateDB.AGE, age);
-        return mDB.update(Database.CreateDB._TABLENAME, values, "_id=" + id, null) > 0;
+        values.put(Database.CreateAccount.NAME, name);
+        values.put(Database.CreateAccount.GENDER, gender);
+        values.put(Database.CreateAccount.AGE, age);
+        return mDB.update(Database.CreateAccount._TABLENAME, values, "_id=" + id, null) > 0;
     }
 
     // Delete All
     public void deleteAllColumns() {
-        mDB.delete(Database.CreateDB._TABLENAME, null, null);
+        mDB.delete(Database.CreateAccount._TABLENAME, null, null);
     }
 
     // Delete DB
     public boolean deleteColumn(long id){
-        return mDB.delete(Database.CreateDB._TABLENAME, "_id="+id, null) > 0;
+        return mDB.delete(Database.CreateAccount._TABLENAME, "_id="+id, null) > 0;
     }
     // Select DB
     public Cursor selectColumns(){
-        return mDB.query(Database.CreateDB._TABLENAME, null, null, null, null, null, null);
+        return mDB.query(Database.CreateAccount._TABLENAME, null, null, null, null, null, null);
     }
 
     // sort by column

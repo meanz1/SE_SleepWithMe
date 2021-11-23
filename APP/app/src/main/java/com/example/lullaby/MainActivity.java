@@ -104,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
         mDbOpenHelper = new DbOpenHelper(this);
         mDbOpenHelper.open();
         mDbOpenHelper.create();
+        mDbOpenHelper.insertAccountColumn("고은서","woman",23);
+        mDbOpenHelper.insertAccountColumn("김민지","woman",23);
+        mDbOpenHelper.insertAccountColumn("문명균","man",26);
+        mDbOpenHelper.insertAccountColumn("윤하은","woman",23);
+        mDbOpenHelper.insertPreferenceColumn("하은","nature");
 
         String name = "은서";
         TextView openingWord = findViewById(R.id.opening_word);
