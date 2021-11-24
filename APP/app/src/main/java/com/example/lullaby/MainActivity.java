@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
         final ToggleButton toggleButton =
                 (ToggleButton) this.findViewById(R.id.toggleButton);
-        ImageButton nextButton = findViewById(R.id.btn1);
+        ImageButton accountButton = findViewById(R.id.account);
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        nextButton.setOnClickListener(new View.OnClickListener(){
+        accountButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ServiceTestActivity.class);
+                Intent intent = new Intent(v.getContext(), AccountActivity.class);
                 startActivity(intent);
             }
         });
@@ -97,7 +97,15 @@ public class MainActivity extends AppCompatActivity {
         AsmrButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), VideoActivity.class);
+                Intent intent = new Intent(v.getContext(), AlarmSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton myDataButton = findViewById(R.id.myData);
+        myDataButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MyDataActivity.class);
                 startActivity(intent);
             }
         });
