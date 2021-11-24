@@ -11,6 +11,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -117,9 +118,13 @@ public class MainActivity extends AppCompatActivity {
         mDbOpenHelper.insertAccountColumn("김민지","woman",23);
         mDbOpenHelper.insertAccountColumn("문명균","man",26);
         mDbOpenHelper.insertAccountColumn("윤하은","woman",23);
-        mDbOpenHelper.insertPreferenceColumn("하은","nature");
+        mDbOpenHelper.insertPreferenceColumn("윤하은","nature");
 
-        String name = "고은서";
+        Cursor iCursor = mDbOpenHelper.selectAccountColumns();
+        iCursor.moveToNext();
+        AccountData.getInstance().setName(iCursor.getString(iCursor.getColumnIndex("name")));
+
+        String name = AccountData.getInstance().getName();
         TextView openingWord = findViewById(R.id.opening_word);
         openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
     }
