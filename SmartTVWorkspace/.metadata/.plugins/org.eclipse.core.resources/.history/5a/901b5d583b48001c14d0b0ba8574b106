@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example Web App</title>
+<style type="text/css">
+    body {
+        background-image:url('bgimage.png');
+        
+        height: 100%;
+        width: 100%;
+    }
+    .sleepON {
+    	width: 500px;
+    	height: 350px;
+    }
+</style>
+<script type="text/javascript">
+    
+    
+
+    
+</script>
+</head>
+<body>
+	<button type="button" id="sleepON" class="navyBtn" onClick="location.href='index.html'">SLEEP ON</button>
+</body>
+</html>

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;myapp/수면모드ON.png&apos; to &apos;sleepon.png&apos;" description="Rename resource &apos;수면모드ON.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="수면모드ON.png" name="sleepon.png" stamp="1637167579583" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;myapp/배경화면.png&apos; to &apos;bgimg.png&apos;" description="Rename resource &apos;배경화면.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="배경화면.png" name="bgimg.png" stamp="1637167894227" updateReferences="true"/>
-</session>

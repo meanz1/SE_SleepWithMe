@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example Web App</title>
+<style type="text/css">
+    body {
+        background-image:url('asmr.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+   
+    #move {
+    	width: 300px;
+    	height: 300px;
+    	border: 1px solid white;
+    	margin-left: 360px;
+    	margin-top: 500px;
+    }
+</style>
+<script type="text/javascript">
+
+    
+
+    
+</script>
+</head>
+<body>
+	<div id="move"></div>
+	
+</body>
+</html>

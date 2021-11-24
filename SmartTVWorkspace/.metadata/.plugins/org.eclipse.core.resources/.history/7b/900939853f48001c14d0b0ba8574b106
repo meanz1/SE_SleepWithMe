@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example Web App</title>
+<style type="text/css">
+    body {
+        background-image:url('main.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+    .sleepON {
+    	font-size: 50px;
+    	text-align: center;
+    }
+    img {
+    	float: right;
+    	margin-top: 110px;
+    	margin-right: 160px;
+    }
+</style>
+<script type="text/javascript">
+    
+    
+
+    
+</script>
+</head>
+<body>
+	<button type="button" id="sleepON" class="navyBtn" onClick="location.href='index.html'">SLEEP ON</button>
+	<img src="sleepoff.png"/>
+</body>
+</html>

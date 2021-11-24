@@ -1,0 +1,24 @@
+const pkgInfo = require('./package.json');
+const Service = require('webos-service');
+const service = new Service(pkgInfo.name);
+let greeting = "Hello, World!";
+
+// a method that always returns the same value
+service.register("hello", function(message) {
+	console.log("In hello callback");
+	const name = message.payload.name ? message.payload.name : "minji";
+	
+	message.respond({
+		returnValue: true,
+		Response: "Hello "+name+"!"
+	});
+});
+service.register("toast", function(msg){
+	service.call("luna://com.webos.notification/createToast", {message:"hello"}, function(m2){
+		msg.response({
+			returnValue: true,
+			Response: JSON.stringfy(m2.payload)
+		})
+	})
+})
+// set some state in the service

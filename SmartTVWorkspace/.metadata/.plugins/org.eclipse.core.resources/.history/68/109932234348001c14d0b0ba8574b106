@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example Web App</title>
+<style type="text/css">
+    body {
+        background-image:url('main.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+    .sleepON {
+    	font-size: 50px;
+    	text-align: center;
+    }
+    img {
+    	float: right;
+    	position: absolute;
+    	top: 107px;
+    	right: 170px;
+    	
+    }
+    #cursor {
+    	width: 300px;
+    	height: 300px;
+    	border: 1px solid white;
+    	margin-left: 500px;
+    	margin-top: 450px;
+    }
+</style>
+<script type="text/javascript">
+	function sleepon(){
+		document.getElementById("officon").style.visibility = "hidden";
+		window.location.href = "index.html";
+	}
+    
+
+    
+</script>
+</head>
+<body>
+	<div id="officon">
+		<img src="sleepoff.png" onclick="sleepon()"/>
+	</div>
+	
+	<div id="cursor">here</div>
+</body>
+</html>

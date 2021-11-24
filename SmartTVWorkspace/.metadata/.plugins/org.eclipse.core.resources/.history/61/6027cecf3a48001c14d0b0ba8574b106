@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example Web App</title>
+<style type="text/css">
+    body {
+        background-image:url('bgimage.png');
+        
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+    
+    
+
+    
+</script>
+</head>
+<body>
+	<button type="button" class="navyBtn" onClick="location.href='index.html'">
+</body>
+</html>

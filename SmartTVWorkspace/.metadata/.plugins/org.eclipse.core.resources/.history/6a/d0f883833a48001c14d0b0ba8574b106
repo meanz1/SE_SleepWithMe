@@ -1,0 +1,16 @@
+{
+    "vendor": "My Company",
+    "largeIcon": "sleepon.png",
+    "icon": "icon.png",
+    "main": "index.html",
+    "id": "com.testapp.app",
+    "title": "testapp",
+    "type": "web",
+    "version": "0.0.1",
+    "requiredPermissions": [
+        "time.query",
+        "activity.operation",
+        "notification.operation",
+        "all"
+    ]
+}
