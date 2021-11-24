@@ -1,9 +1,0 @@
-{
-  "id": "com.swmyoutubeapp.app.swmyoutubesrv",
-  "description": "HelloWorld Service",
-  "services": [
-    {
-      "name": "com.swmyoutubeapp.app.swmyoutubesrv"
-    }
-  ]
-}
