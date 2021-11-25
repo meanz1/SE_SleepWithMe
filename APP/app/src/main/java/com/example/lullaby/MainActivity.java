@@ -3,12 +3,15 @@ package com.example.lullaby;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.database.Cursor;
@@ -17,6 +20,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     public final String DEFAULT = "DEFAULT";
     public static Context mContext;
     private DbOpenHelper mDbOpenHelper;
+
+    public ToggleButton toggleButton;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
@@ -51,21 +57,19 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannel(DEFAULT, "default channel", NotificationManager.IMPORTANCE_HIGH);
         setContentView(R.layout.activity_main);
         mContext = this;
-        final ToggleButton toggleButton =
-                (ToggleButton) this.findViewById(R.id.toggleButton);
+        toggleButton = (ToggleButton) this.findViewById(R.id.toggleButton);
         ImageButton accountButton = findViewById(R.id.account);
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Intent intent = new Intent(MainActivity.this,MyService.class);
                 if(toggleButton.isChecked()){
-                    Toast.makeText(getApplicationContext(),"수면모드 시작",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this,MyService.class);
-                    bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
+                    showDialog();
+                    //Intent intent = new Intent(MainActivity.this,MyService.class);
+                    //bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
                     Log.v("asdf","연결하는중");
                     toggleButton.setBackgroundDrawable(
-                            getResources().
-                                    getDrawable(R.drawable.on)
+                            getResources().getDrawable(R.drawable.on)
                     );
                 }else{
                     Toast.makeText(getApplicationContext(),"수면모드 종료",Toast.LENGTH_SHORT).show();
@@ -127,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
         String name = AccountData.getInstance().getName();
         TextView openingWord = findViewById(R.id.opening_word);
         openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
+
+
+
     }
     void createNotificationChannel(String channelId, String channelName,int importance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -169,9 +176,37 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), TestActivity.class);
         startActivity(intent);
     }
-    void endService(){
-        unbindService(conn);
+    void showDialog() {
+        Dialog sleepDialog = new Dialog(MainActivity.this);
+        sleepDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        sleepDialog.setContentView(R.layout.sleep_dialog);
+        sleepDialog.show();
+        Button yesButton = sleepDialog.findViewById(R.id.yesBtn);
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "수면모드 시작", Toast.LENGTH_SHORT).show();
+                serviceOn();
+                sleepDialog.dismiss();
+            }
+        });
+        Button noButton = sleepDialog.findViewById(R.id.noBtn);
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "no", Toast.LENGTH_SHORT).show();
+                toggleButton.setChecked(false);
+                toggleButton.setBackgroundDrawable(
+                        getResources().getDrawable(R.drawable.off));
+                sleepDialog.dismiss();
+                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
-
+    void serviceOn(){
+        Intent intent = new Intent(MainActivity.this, MyService.class);
+        bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
+    }
+    
 }
