@@ -91,7 +91,7 @@ public class DbOpenHelper {
         return mDB.delete(Database.CreateAccount._TABLENAME, "_id="+id, null) > 0;
     }
     // Select DB
-    public Cursor selectColumns(){
+    public Cursor selectAccountColumns(){
         return mDB.query(Database.CreateAccount._TABLENAME, null, null, null, null, null, null);
     }
 
