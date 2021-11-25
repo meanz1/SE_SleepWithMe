@@ -65,7 +65,7 @@ public class AccountActivity extends AppCompatActivity {
                     eunseoButton.setChecked(false);
                     minjiButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_minji));
                     minjiButton.setChecked(false);
-                    myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong));
+                    myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong_s));
                     haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun));
                     haeunButton.setChecked(false);
                 } else {
@@ -82,7 +82,7 @@ public class AccountActivity extends AppCompatActivity {
                     minjiButton.setChecked(false);
                     myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong));
                     myeongkyunButton.setChecked(false);
-                    haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun));
+                    haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun_s));
                 } else {
                 }
             }
