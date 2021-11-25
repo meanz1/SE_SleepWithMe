@@ -8,6 +8,7 @@
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/on_off.xml" value="0.1546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/recommend_buttonshape.xml" value="0.28671875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/recommend_buttonshape2.xml" value="0.1546875" />
+        <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_account.xml" value="0.135546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_select.xml" value="0.18338815789473684" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_service_test.xml" value="0.14609375" />
@@ -32,11 +33,7 @@
         <entry key="app/src/main/res/layout/activity_my_data.xml" value="0.11842105263157894" />
         <entry key="app/src/main/res/layout/activity_pager.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/layout/activity_screen_slide.xml" value="0.3159947984395319" />
-<<<<<<< HEAD
-        <entry key="app/src/main/res/layout/activity_select.xml" value="0.165" />
-=======
         <entry key="app/src/main/res/layout/activity_select.xml" value="0.1" />
->>>>>>> ca684ad4b97d9d4db3d3b4869bf4e8f894ef547d
         <entry key="app/src/main/res/layout/activity_service_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.12635869565217392" />
         <entry key="app/src/main/res/layout/activity_test2.xml" value="0.19429347826086957" />
