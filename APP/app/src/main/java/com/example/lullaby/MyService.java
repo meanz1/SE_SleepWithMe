@@ -67,8 +67,6 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-       // thread.stopForever();
-       // thread = null;//쓰레기 값을 만들어서 빠르게 회수하라고 null을 넣어줌.
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
