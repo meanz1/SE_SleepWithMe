@@ -29,7 +29,7 @@
             android:textAlignment="center" />
 
         <EditText
-            android:id="@+id/et_pass"
+            android:id="@+id/et_pw"
             android:layout_gravity="center"
             android:layout_width="800dp"
             android:layout_height="wrap_content"

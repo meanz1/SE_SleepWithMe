@@ -30,6 +30,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         }
         else if(intent.getAction() == "stop"){
             Toast.makeText(context, "수면모드 종료", Toast.LENGTH_LONG).show();
+            ((MainActivity)MainActivity.mContext).toggleButton.setChecked(false);
             GlobalVariable.getInstance().setYetSleep(true);
             GlobalVariable.getInstance().getMs().onDestroy();
         }
