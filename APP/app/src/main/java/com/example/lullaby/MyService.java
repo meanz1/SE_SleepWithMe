@@ -56,7 +56,7 @@ public class MyService extends Service {
                         public void run() {
                             Intent sintent = new Intent(((MainActivity)MainActivity.mContext),MyService.class);
                             ((MainActivity)MainActivity.mContext).stopService(sintent);
-                            ((MainActivity)MainActivity.mContext).sleepScreen(); // TestActivity(수면중 화면으로 넘어감)
+                            ((MainActivity)MainActivity.mContext).sleepScreen();// TestActivity(수면중 화면으로 넘어감)
                         }
                     },3000);
                 }

@@ -3,6 +3,7 @@ package com.example.lullaby;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Notification;
@@ -17,6 +18,7 @@ import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
@@ -34,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
     public final String DEFAULT = "DEFAULT";
     public static Context mContext;
     private DbOpenHelper mDbOpenHelper;
-
     public ToggleButton toggleButton;
+    AlarmManager alarmManager;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         //create NotiChannel
         createNotificationChannel(DEFAULT, "default channel", NotificationManager.IMPORTANCE_HIGH);
         setContentView(R.layout.activity_main);
@@ -175,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
     void sleepScreen(){ // 수면중 화면
         Intent intent = new Intent(getApplicationContext(), TestActivity.class);
         startActivity(intent);
+        showAlarm();
     }
     void showDialog() {
         Dialog sleepDialog = new Dialog(MainActivity.this);
@@ -207,6 +211,15 @@ public class MainActivity extends AppCompatActivity {
     void serviceOn(){
         Intent intent = new Intent(MainActivity.this, MyService.class);
         bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
+    }
+    void showAlarm(){
+        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 10, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+10000, pendingIntent);//10초후알람
+        }else{
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+10000,pendingIntent);
+        }
     }
     
 }
