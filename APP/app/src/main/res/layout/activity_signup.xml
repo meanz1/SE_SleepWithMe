@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/back"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_gravity="center"
+            android:layout_width="800dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/transparent_gray"
+            android:hint="@string/hint_id"
+            android:inputType="textCapWords"
+            android:padding="10dp"
+            android:textColorHint="@color/white"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/et_pw"
+            android:layout_gravity="center"
+            android:layout_width="800dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/transparent_gray"
+            android:hint="@string/hint_password"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColorHint="@color/white"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/et_pwcheck"
+            android:layout_gravity="center"
+            android:layout_width="800dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/transparent_gray"
+            android:hint="@string/hint_passwordcheck"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColorHint="@color/white"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_gravity="center"
+            android:layout_width="800dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/white"
+            android:text="@string/btn_sign"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dip"
+        android:background="@color/white"
+        android:text="@string/btn_back"
+        android:textColor="@color/black" />
+</LinearLayout>
