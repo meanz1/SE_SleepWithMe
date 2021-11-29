@@ -65,6 +65,5 @@
             android:background="@drawable/ok_buttonshape"
             android:layout_marginHorizontal="50dp">
         </Button>
-
     </LinearLayout>
 </LinearLayout>

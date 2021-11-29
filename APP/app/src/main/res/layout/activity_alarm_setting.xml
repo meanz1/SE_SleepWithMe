@@ -9,51 +9,52 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginTop="130dp"
-        android:layout_marginLeft="140dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="130dp"
         android:text="알람"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="70dp" />
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
         <TextView
-            android:layout_marginTop="30dp"
-            android:layout_width="500dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:text="목표 취침 시간"
             android:textColor="@color/white"
-            android:layout_marginLeft="140dp"
+            android:layout_gravity="center"
             android:textSize="30dp"
+            android:layout_marginLeft="130dp"
             />
         <TextView
-            android:layout_marginTop="30dp"
-            android:layout_width="wrap_content"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:text="최소 기상 시각"
             android:textColor="@color/white"
+            android:layout_gravity="center"
             android:textSize="30dp"
-            android:layout_marginHorizontal="70dp"
+            android:layout_marginLeft="180dp"
             />
         ></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
         <Spinner
             android:background="@color/white"
-            android:layout_marginTop="30dp"
             android:id="@+id/target_sleep_time"
             android:layout_width="wrap_content"
             android:layout_marginRight="80dp"
-            android:layout_marginLeft="140dp"
+            android:layout_marginLeft="130dp"
             android:layout_height="40dp"
             android:layout_weight="1" />
 
         <Spinner
             android:background="@color/white"
-            android:layout_marginTop="30dp"
             android:id="@+id/min_wakeup"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -62,4 +63,79 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:text="반복"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_marginLeft="130dp"
+            />
+        <TextView
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:text="수면 여부 확인 주기"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_marginLeft="180dp"
+            />
+        ></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+        <Spinner
+            android:background="@color/white"
+            android:id="@+id/repeat_term"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="130dp"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:background="@color/white"
+            android:id="@+id/sleep_check_term"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="80dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="140dp">
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="완료"
+            android:textSize="25dp"
+            android:background="@drawable/ok_buttonshape"
+            android:layout_marginHorizontal="50dp">
+        </Button>
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            android:textSize="25dp"
+            android:background="@drawable/ok_buttonshape"
+            android:layout_marginHorizontal="50dp"
+            android:textColor="@color/red">
+        </Button>
+    </LinearLayout>
+
+
 </LinearLayout>

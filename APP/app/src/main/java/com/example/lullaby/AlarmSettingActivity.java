@@ -24,5 +24,17 @@ public class AlarmSettingActivity extends AppCompatActivity {
                 R.array.min_wakeup, android.R.layout.simple_spinner_item);
         mwAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mwSpinner.setAdapter(mwAdapter);
+
+        Spinner rpSpinner = (Spinner)findViewById(R.id.repeat_term);
+        ArrayAdapter rpAdapter = ArrayAdapter.createFromResource(this,
+                R.array.repeat_term, android.R.layout.simple_spinner_item);
+        rpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        rpSpinner.setAdapter(rpAdapter);
+
+        Spinner scSpinner = (Spinner)findViewById(R.id.sleep_check_term);
+        ArrayAdapter scAdapter = ArrayAdapter.createFromResource(this,
+                R.array.sleep_check_term, android.R.layout.simple_spinner_item);
+        scAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        scSpinner.setAdapter(scAdapter);
     }
 }
