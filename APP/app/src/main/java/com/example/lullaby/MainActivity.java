@@ -213,12 +213,13 @@ public class MainActivity extends AppCompatActivity {
         bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
     }
     void showAlarm(){
+        int time = 5000;
         Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 10, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+10000, pendingIntent);//10초후알람
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+time, pendingIntent);//10초후알람
         }else{
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+10000,pendingIntent);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+time,pendingIntent);
         }
     }
     

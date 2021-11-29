@@ -21,7 +21,7 @@ public class AlarmActivity extends AppCompatActivity {
     Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
     //SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
     //SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
-
+    boolean achieve = false; // 기본값 - fail
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class AlarmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ringtone.stop();
+                achieve = true; // 일어났어요 -> 목표달성
             }
         });
         Button keep_sleep_Button = findViewById(R.id.btn_keep_sleep);
@@ -44,6 +45,7 @@ public class AlarmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ringtone.stop();
+                achieve = false;
             }
         });
         TextView nowTime = findViewById(R.id.now_time);
