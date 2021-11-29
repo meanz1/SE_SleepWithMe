@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -26,6 +27,8 @@ public class AccountActivity extends AppCompatActivity {
                 (ToggleButton) this.findViewById(R.id.myeongkyunButton);
         ToggleButton haeunButton =
                 (ToggleButton) this.findViewById(R.id.haeunButton);
+        ImageButton addButton =
+                (ImageButton) this.findViewById(R.id.add);
 
         eunseoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +88,13 @@ public class AccountActivity extends AppCompatActivity {
                     haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun_s));
                 } else {
                 }
+            }
+        });
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AddAccountActivity.class);
+                startActivity(intent);
             }
         });
     }
