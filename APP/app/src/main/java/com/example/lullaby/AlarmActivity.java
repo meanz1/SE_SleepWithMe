@@ -3,6 +3,7 @@ package com.example.lullaby;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.AudioAttributes;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -18,13 +19,16 @@ import java.util.Date;
 
 public class AlarmActivity extends AppCompatActivity {
     Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-    SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
+    //SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+    //SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         Ringtone ringtone = RingtoneManager.getRingtone(getApplicationContext(), alarm);
+        AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
+        ringtone.setAudioAttributes(audioAttributes);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
         ringtone.play();
