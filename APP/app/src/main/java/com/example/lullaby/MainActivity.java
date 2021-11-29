@@ -29,13 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import com.example.lullaby.MyService.MyBinder;
+import com.example.lullaby.videos.SelectActivity;
 import com.example.lullaby.videos.VideoActivity;
 
 public class MainActivity extends AppCompatActivity {
     boolean isService = false ; // 서비스중인지 확인하는 변수
     public final String DEFAULT = "DEFAULT";
     public static Context mContext;
-    private DbOpenHelper mDbOpenHelper;
     public ToggleButton toggleButton;
     AlarmManager alarmManager;
 
@@ -118,20 +118,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mDbOpenHelper = new DbOpenHelper(this);
-        mDbOpenHelper.open();
-        mDbOpenHelper.create();
-        mDbOpenHelper.insertAccountColumn("고은서","woman",23);
-        mDbOpenHelper.insertAccountColumn("김민지","woman",23);
-        mDbOpenHelper.insertAccountColumn("문명균","man",26);
-        mDbOpenHelper.insertAccountColumn("윤하은","woman",23);
-        mDbOpenHelper.insertPreferenceColumn("윤하은","nature");
 
-        Cursor iCursor = mDbOpenHelper.selectAccountColumns();
-        iCursor.moveToNext();
-        AccountData.getInstance().setName(iCursor.getString(iCursor.getColumnIndex("name")));
-
-        String name = AccountData.getInstance().getName();
+        String name = "은서";
         TextView openingWord = findViewById(R.id.opening_word);
         openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
 

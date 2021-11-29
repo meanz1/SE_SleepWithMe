@@ -1,4 +1,4 @@
-package com.example.lullaby;
+package com.example.lullaby.videos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.lullaby.R;
 import com.example.lullaby.videos.AsmrPagerActivity;
 import com.example.lullaby.videos.MeditPagerActivity;
 import com.example.lullaby.videos.MusicPagerActivity;

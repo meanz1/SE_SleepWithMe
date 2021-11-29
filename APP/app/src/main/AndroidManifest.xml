@@ -54,7 +54,7 @@
             android:name=".videos.AsmrPagerActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectActivity"
+            android:name=".videos.SelectActivity"
             android:exported="false" />
         <activity
             android:name=".AlarmActivity"
