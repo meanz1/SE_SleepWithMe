@@ -30,6 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import com.example.lullaby.MyService.MyBinder;
+import com.example.lullaby.data.GlobalVariable;
+import com.example.lullaby.login.LoginActivity;
 import com.example.lullaby.videos.SelectActivity;
 import com.example.lullaby.videos.VideoActivity;
 
@@ -167,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.cancel(id);
     }
     void sleepScreen(){ // 수면중 화면
-        Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SleepActivity.class);
         startActivity(intent);
         showAlarm();
     }
