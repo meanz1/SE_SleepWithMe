@@ -3,8 +3,7 @@ package com.example.lullaby.network;
 import android.content.ContentValues;
 import android.os.AsyncTask;
 
-import com.example.lullaby.AccountData;
-import com.example.lullaby.network.RequestHttpURLConnection;
+import com.example.lullaby.data.AccountData;
 
 public class NetworkTask extends AsyncTask<Void, Void, String> {
 

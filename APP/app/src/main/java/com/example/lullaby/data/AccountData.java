@@ -1,4 +1,4 @@
-package com.example.lullaby;
+package com.example.lullaby.data;
 
 public class AccountData {
 

@@ -3,9 +3,7 @@ package com.example.lullaby;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
-import android.app.Activity;
 import android.app.AlarmManager;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -13,13 +11,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
@@ -30,8 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import com.example.lullaby.MyService.MyBinder;
+import com.example.lullaby.data.GlobalVariable;
 import com.example.lullaby.videos.SelectActivity;
-import com.example.lullaby.videos.VideoActivity;
 
 public class MainActivity extends AppCompatActivity {
     boolean isService = false ; // 서비스중인지 확인하는 변수
@@ -167,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.cancel(id);
     }
     void sleepScreen(){ // 수면중 화면
-        Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SleepActivity.class);
         startActivity(intent);
         showAlarm();
     }
