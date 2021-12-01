@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.lullaby.R;
-import com.example.lullaby.SignUpActivity;
 import com.example.lullaby.network.NetworkTask;
 
 public class LoginActivity extends AppCompatActivity {
