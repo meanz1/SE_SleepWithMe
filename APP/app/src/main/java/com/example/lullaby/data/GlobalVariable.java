@@ -1,4 +1,6 @@
-package com.example.lullaby;
+package com.example.lullaby.data;
+
+import com.example.lullaby.MyService;
 
 public class GlobalVariable {
     private static GlobalVariable instance = null;
