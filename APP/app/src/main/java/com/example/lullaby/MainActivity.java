@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
         openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
 
 
-
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
     }
     void createNotificationChannel(String channelId, String channelName,int importance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -2,6 +2,7 @@ package com.example.lullaby;
 
 import android.content.ContentValues;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class NetworkTask extends AsyncTask<Void, Void, String> {
 
@@ -26,5 +27,10 @@ public class NetworkTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
+        String[] arStr = s.split("\\s");
+        AccountData.getInstance().setIdx(arStr[0]);
+        AccountData.getInstance().setUserId(arStr[1]);
+        AccountData.getInstance().setName(arStr[2]);
+        AccountData.getInstance().setGender(arStr[3]);
     }
 }

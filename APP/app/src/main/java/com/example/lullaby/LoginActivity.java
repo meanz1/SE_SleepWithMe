@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,11 +18,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public EditText et_id,et_pw;
     public Button btn_login, btn_register;
-    public static String id,password;
+    public static String id,pw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Log.d("asdf","qwer");
         btn_login=(Button)findViewById(R.id.btn_login);
         et_id=(EditText)findViewById(R.id.et_id);
         et_pw=(EditText)findViewById(R.id.et_pw);
@@ -29,10 +31,12 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                id=et_id.getText().toString();
-                password=et_pw.getText().toString();
-                String url = "http://XXX.XXX.XXX.XXX/api/index.php/linkb_member/login_member/";
-                NetworkTask networkTask = new NetworkTask(url, null);
+                Log.d("asdf","dddd");
+                ContentValues values = new ContentValues();
+                values.put("id", et_id.getText().toString());
+                values.put("pw", et_pw.getText().toString());
+                String url = "http://35.213.59.137/login";
+                NetworkTask networkTask = new NetworkTask(url, values);
                 networkTask.execute();
             }
         });
