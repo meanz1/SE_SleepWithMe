@@ -3,7 +3,7 @@ package com.example.lullaby;
 public class AccountData {
 
     private static AccountData accountData = null;
-    private String idx;
+    private int idx;
     private String userId;
     private String name;
     private String gender;
@@ -11,7 +11,7 @@ public class AccountData {
     private String category1;
     private String category2;
 
-    public String getIdx() { return idx;}
+    public int getIdx() { return idx;}
 
     public String getUserId() { return userId; }
 
@@ -35,7 +35,7 @@ public class AccountData {
         this.name = name;
     }
 
-    public void setIdx(String idx) { this.idx = idx; }
+    public void setIdx(int idx) { this.idx = idx; }
 
     public void setUserId(String userId) { this.userId = userId; }
 

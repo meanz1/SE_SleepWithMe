@@ -3,6 +3,7 @@ package com.example.lullaby;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -123,9 +124,10 @@ public class MainActivity extends AppCompatActivity {
         TextView openingWord = findViewById(R.id.opening_word);
         openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
 
-
+        Log.d("asdf", "ㅈ1");
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
+        Log.d("asdf", "ㅈ2");
     }
     void createNotificationChannel(String channelId, String channelName,int importance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -1,13 +1,17 @@
-package com.example.lullaby;
+package com.example.lullaby.network;
 
 import android.content.ContentValues;
 import android.os.AsyncTask;
-import android.util.Log;
+
+import com.example.lullaby.AccountData;
+import com.example.lullaby.network.RequestHttpURLConnection;
 
 public class NetworkTask extends AsyncTask<Void, Void, String> {
 
     private String url;
     private ContentValues values;
+
+    public boolean success = false;
 
     public NetworkTask(String url, ContentValues values) {
 
@@ -28,9 +32,14 @@ public class NetworkTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         String[] arStr = s.split("\\s");
-        AccountData.getInstance().setIdx(arStr[0]);
+        AccountData.getInstance().setIdx(Integer.parseInt(arStr[0]));
+        if(Integer.parseInt(arStr[0]) == -1) return;
         AccountData.getInstance().setUserId(arStr[1]);
         AccountData.getInstance().setName(arStr[2]);
         AccountData.getInstance().setGender(arStr[3]);
+        AccountData.getInstance().setAge(Integer.parseInt(arStr[4]));
+        AccountData.getInstance().setCategory1(arStr[5]);
+        AccountData.getInstance().setCategory2(arStr[6]);
+        success = true;
     }
 }
