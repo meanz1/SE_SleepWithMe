@@ -16,7 +16,7 @@
         android:paddingRight="20dp">
 
         <EditText
-            android:id="@+id/et_id"
+            android:id="@+id/sn_id"
             android:layout_gravity="center"
             android:layout_width="800dp"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:textAlignment="center" />
 
         <EditText
-            android:id="@+id/et_pw"
+            android:id="@+id/sn_pw"
             android:layout_gravity="center"
             android:layout_width="800dp"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:textAlignment="center"/>
 
         <EditText
-            android:id="@+id/et_pwcheck"
+            android:id="@+id/sn_pwcheck"
             android:layout_gravity="center"
             android:layout_width="800dp"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:textAlignment="center"/>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_signup"
             android:layout_gravity="center"
             android:layout_width="800dp"
             android:layout_height="wrap_content"

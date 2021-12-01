@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.lullaby.R;
-import com.example.lullaby.network.NetworkTask;
+import com.example.lullaby.network.LoginNetworkTask;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -45,11 +45,11 @@ public class LoginActivity extends AppCompatActivity {
                 values.put("id", et_id.getText().toString());
                 values.put("pw", et_pw.getText().toString());
                 String url = "http://35.213.59.137/login";
-                NetworkTask networkTask = new NetworkTask(url, values);
-                networkTask.execute();
+                LoginNetworkTask loginNetworkTask = new LoginNetworkTask(url, values);
+                loginNetworkTask.execute();
                 new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void run() { if(networkTask.success) finish();
+                    public void run() { if(loginNetworkTask.success) finish();
                     else {AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                         dialog = builder.setMessage("로그인에 실패했습니다.").setNegativeButton("확인", null).create();
                         dialog.show();}}
