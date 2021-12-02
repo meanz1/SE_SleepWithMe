@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void run() { if(loginNetworkTask.success) {
                         Log.d("asdf", "종료");
+                        setResult(1111);
                         finish();
                     }
                     else {AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);

@@ -1,5 +1,6 @@
 package com.example.lullaby;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AccountActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1111);
             }
         });
         ImageButton recommendButton = findViewById(R.id.recommend);
@@ -122,21 +123,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        String name = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName();
-        String name = "고은서";
-        TextView openingWord = findViewById(R.id.opening_word);
-        openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
-
         Log.d("asdf", "ㅈ1");
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1111);
         Log.d("asdf", "ㅈ2");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == 1111) {
+            Log.d("asdf", "fwe");
+            String name = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName();
+            TextView openingWord = findViewById(R.id.opening_word);
+            openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
     }
+
+
 
     void createNotificationChannel(String channelId, String channelName, int importance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

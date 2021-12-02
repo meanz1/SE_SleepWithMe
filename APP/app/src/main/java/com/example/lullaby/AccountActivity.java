@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.lullaby.data.AccountData;
+
 public class AccountActivity extends AppCompatActivity {
 
     @Override
@@ -71,6 +73,9 @@ public class AccountActivity extends AppCompatActivity {
                     myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong_s));
                     haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun));
                     haeunButton.setChecked(false);
+                    AccountData.getInstance().setUserSelected(2);
+                    setResult(1111);
+                    finish();
                 } else {
                 }
             }
