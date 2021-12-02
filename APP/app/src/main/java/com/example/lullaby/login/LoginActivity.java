@@ -49,11 +49,14 @@ public class LoginActivity extends AppCompatActivity {
                 loginNetworkTask.execute();
                 new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void run() { if(loginNetworkTask.success) finish();
+                    public void run() { if(loginNetworkTask.success) {
+                        Log.d("asdf", "종료");
+                        finish();
+                    }
                     else {AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                         dialog = builder.setMessage("로그인에 실패했습니다.").setNegativeButton("확인", null).create();
                         dialog.show();}}
-                }, 200);
+                }, 1000);
             }
         });
         btn_register.setOnClickListener(new View.OnClickListener() {
