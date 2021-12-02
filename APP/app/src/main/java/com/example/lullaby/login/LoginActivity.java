@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     else {AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                         dialog = builder.setMessage("로그인에 실패했습니다.").setNegativeButton("확인", null).create();
                         dialog.show();}}
-                }, 1000);
+                }, 2000);
             }
         });
         btn_register.setOnClickListener(new View.OnClickListener() {
