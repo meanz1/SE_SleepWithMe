@@ -16,10 +16,11 @@
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_signup.xml" value="0.29734848484848486" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_test.xml" value="0.18338815789473684" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25277777777777777" />
+        <entry key="app/src/main/res/drawable/account_buttonshape.xml" value="0.18722222222222223" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24947916666666667" />
         <entry key="app/src/main/res/drawable/recommend_buttonshape.xml" value="0.24947916666666667" />
         <entry key="app/src/main/res/drawable/recommend_buttonshape2.xml" value="0.198828125" />
-        <entry key="app/src/main/res/layout/activity_account.xml" value="0.1318530701754386" />
+        <entry key="app/src/main/res/layout/activity_account.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_add_account.xml" value="0.1885245901639344" />
         <entry key="app/src/main/res/layout/activity_alarm.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_alarm_setting.xml" value="0.1" />
@@ -50,7 +51,9 @@
         <entry key="app/src/main/res/layout/fragment_music1.xml" value="0.11540570175438597" />
         <entry key="app/src/main/res/layout/fragment_music2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_screen_slide_page.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/item_profile.xml" value="0.14117324561403508" />
         <entry key="app/src/main/res/layout/pager/fragment_screen_slide_page.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/recyclerview_item.xml" value="0.335" />
       </map>
     </option>
   </component>

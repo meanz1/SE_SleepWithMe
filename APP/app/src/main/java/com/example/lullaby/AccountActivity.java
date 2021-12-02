@@ -1,6 +1,8 @@
 package com.example.lullaby;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,94 +15,38 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.lullaby.data.AccountData;
+import com.example.lullaby.videos.SelectActivity;
+
+import java.util.ArrayList;
 
 public class AccountActivity extends AppCompatActivity {
-
+    public static Context aContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        aContext = this;
         setContentView(R.layout.activity_account);
-        ToggleButton eunseoButton =
-                (ToggleButton) this.findViewById(R.id.eunseoButton);
-        eunseoButton.setChecked(true);
-        ToggleButton minjiButton =
-                (ToggleButton) this.findViewById(R.id.minjiButton);
-        ToggleButton myeongkyunButton =
-                (ToggleButton) this.findViewById(R.id.myeongkyunButton);
-        ToggleButton haeunButton =
-                (ToggleButton) this.findViewById(R.id.haeunButton);
-        ImageButton addButton =
-                (ImageButton) this.findViewById(R.id.add);
+        // 리사이클러뷰에 표시할 데이터 리스트 생성.
+        ArrayList<String> list = new ArrayList<>();
+        for (int i=0; i<AccountData.getInstance().profiles.size()+1; i++) {
+            if(i==AccountData.getInstance().profiles.size()){
+                list.add("+");
+            }else {
+                AccountData.getInstance().setUserSelected(i);
+                list.add(AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName());
+            }
+        }
 
-        eunseoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            if (eunseoButton.isChecked()) {
-                eunseoButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_eunseo_s));
-                minjiButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_minji));
-                minjiButton.setChecked(false);
-                myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong));
-                myeongkyunButton.setChecked(false);
-                haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun));
-                haeunButton.setChecked(false);
-                } else {
-                }
-            }
-        });
-        minjiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (minjiButton.isChecked()) {
-                    eunseoButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_eunseo));
-                    eunseoButton.setChecked(false);
-                    minjiButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_minji_s));
-                    myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong));
-                    myeongkyunButton.setChecked(false);
-                    haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun));
-                    haeunButton.setChecked(false);
-                } else {
-                }
-            }
-        });
-        myeongkyunButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (myeongkyunButton.isChecked()) {
-                    eunseoButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_eunseo));
-                    eunseoButton.setChecked(false);
-                    minjiButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_minji));
-                    minjiButton.setChecked(false);
-                    myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong_s));
-                    haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun));
-                    haeunButton.setChecked(false);
-                    AccountData.getInstance().setUserSelected(2);
-                    setResult(1111);
-                    finish();
-                } else {
-                }
-            }
-        });
-        haeunButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (haeunButton.isChecked()) {
-                    eunseoButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_eunseo));
-                    eunseoButton.setChecked(false);
-                    minjiButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_minji));
-                    minjiButton.setChecked(false);
-                    myeongkyunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_myeong));
-                    myeongkyunButton.setChecked(false);
-                    haeunButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.account_haeun_s));
-                } else {
-                }
-            }
-        });
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AddAccountActivity.class);
-                startActivity(intent);
-            }
-        });
+        // 리사이클러뷰에 LinearLayoutManager 객체 지정.
+        RecyclerView recyclerView = findViewById(R.id.recycler1) ;
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
+        SimpleTextAdapter adapter = new SimpleTextAdapter(list) ;
+        recyclerView.setAdapter(adapter) ;
+    }
+    void addPage(){
+        Intent intent = new Intent(this, AddAccountActivity.class);
+        startActivity(intent);
     }
 }
