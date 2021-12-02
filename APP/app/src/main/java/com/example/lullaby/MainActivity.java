@@ -30,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import com.example.lullaby.MyService.MyBinder;
+import com.example.lullaby.data.AccountData;
 import com.example.lullaby.data.GlobalVariable;
 import com.example.lullaby.login.LoginActivity;
 import com.example.lullaby.videos.SelectActivity;
@@ -122,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        String name = "은서";
+//        String name = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName();
+        String name = "";
         TextView openingWord = findViewById(R.id.opening_word);
         openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
 
@@ -131,7 +133,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         Log.d("asdf", "ㅈ2");
     }
-    void createNotificationChannel(String channelId, String channelName,int importance) {
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("asdf","ㄺㄴ");
+
+    }
+
+    void createNotificationChannel(String channelId, String channelName, int importance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(new NotificationChannel(channelId, channelName, importance));

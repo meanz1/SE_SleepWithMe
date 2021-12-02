@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.lullaby.MainActivity;
 import com.example.lullaby.data.AccountData;
 import com.example.lullaby.data.Profile;
 
@@ -47,6 +48,7 @@ public class LoginNetworkTask extends AsyncTask<Void, Void, String> {
             String category2 = arStr[7*i + 7];
             AccountData.getInstance().profiles.add(new Profile(idx, userId, name, gender, age, category1, category2));
         }
+        AccountData.getInstance().setUserSelected(0);
         success = true;
     }
 }

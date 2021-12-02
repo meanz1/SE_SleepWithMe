@@ -6,11 +6,15 @@ public class AccountData {
 
     private static AccountData accountData = null;
 
+    private int userSelected;
     public ArrayList<Profile> profiles;
 
     AccountData() {
         profiles = new ArrayList<Profile>();
     }
+
+    public void setUserSelected(int sel){this.userSelected = sel;}
+    public int getUserSelected(){return this.userSelected;}
 
     public static synchronized AccountData getInstance(){
         if(null==accountData){
