@@ -18,6 +18,18 @@ import java.util.ArrayList;
 
 public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.ViewHolder> {
     private ArrayList<String> mData = null ;
+    //커스텀 리스너
+    public interface OnItemClickListener {
+        void onItemClick(View v, int position) ;
+    }
+    // 리스너 객체 참조를 저장하는 변수
+    private OnItemClickListener mListener = null ;
+
+    // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener ;
+    }
+
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -32,13 +44,13 @@ public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.Vi
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition() ;
-                    if (pos == AccountData.getInstance().profiles.size()){
-                        Toast.makeText(accountButton.getContext(), "마지막 페이지",Toast.LENGTH_SHORT).show();
-                        ((AccountActivity)AccountActivity.aContext).addPage();
-                    }else {
-                        AccountData.getInstance().setUserSelected(pos);
-                        Toast.makeText(accountButton.getContext(), AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName(),Toast.LENGTH_SHORT).show();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        // 리스너 객체의 메서드 호출.
+                        if (mListener != null) {
+                            mListener.onItemClick(v, pos) ;
+                        }
                     }
+
                 }
             });
         }
