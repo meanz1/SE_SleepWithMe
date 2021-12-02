@@ -122,9 +122,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
 //        String name = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName();
-        String name = "";
+        String name = "고은서";
         TextView openingWord = findViewById(R.id.opening_word);
         openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
 
@@ -137,8 +136,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("asdf","ㄺㄴ");
-
     }
 
     void createNotificationChannel(String channelId, String channelName, int importance) {
