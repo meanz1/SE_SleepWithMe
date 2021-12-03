@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity{
                 SignUpNetworkTask.execute();
                 new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void run() { if(SignUpNetworkTask.success) SignUpActivity.this.finish();
+                    public void run() { if(SignUpNetworkTask.success) finish();
                     else {AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
                         dialog = builder.setMessage("동일한 아이디가 존재합니다.").setNegativeButton("확인", null).create();
                         dialog.show();}}
