@@ -17,6 +17,7 @@ public class GlobalVariable {
         if(instance == null) {
             instance = new GlobalVariable();
         }
+        //
         return instance;
     }
 }
