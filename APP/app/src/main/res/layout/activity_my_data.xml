@@ -1,51 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     android:background="@drawable/back"
-    tools:context=".MyDataActivity">
+    >
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="130dp"
+        android:text="수면 스탬프"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="70dp" />
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_width="1000dp"
         android:layout_height="wrap_content"
         >
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
-            android:layout_marginLeft="200dp"
-            android:text="내 데이터"
-            android:textStyle="bold"
+            android:text="년"
             android:textColor="@color/white"
-            android:textSize="70dp" />
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_marginLeft="130dp"
+            />
+        <Spinner
+            android:background="@color/white"
+            android:id="@+id/data_year"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="월"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_marginLeft="10dp"
+            />
+        <Spinner
+            android:background="@color/white"
+            android:id="@+id/data_month"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수면 달성률"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_marginLeft="130dp"
+            android:background="@drawable/ok_buttonshape"
+            />
         ></LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
+        android:layout_height="wrap_content">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/sleep_data"
-            android:layout_marginBottom="100dp"
-            android:layout_marginTop="70dp"
-        ></ImageView>
+            android:background="@drawable/sleep_stamp">
+        </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="51%"
-            android:textSize="120dp"
-            android:textColor="@color/white"
-            android:layout_marginHorizontal="70dp"
-            android:layout_marginBottom="70dp"
-            ></TextView>
-
-
-
+            android:text="74%"
+            android:textSize="150dp">
+        </TextView>
     </LinearLayout>
 </LinearLayout>
