@@ -15,7 +15,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if(intent.getAction() == "keep"){
-            Toast.makeText(context, "킵", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "20분뒤 다시 알림이 뜹니다.", Toast.LENGTH_LONG).show();
             GlobalVariable.getInstance().setYetSleep(true);
             Log.d("asdf", "MyBroadcastReceiver " + GlobalVariable.getInstance().getYetSleep());
             delay_handler.postDelayed(new Runnable() {
