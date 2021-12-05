@@ -123,11 +123,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log.d("asdf", "ㅈ1");
         if(!GlobalVariable.getInstance().getCheckLogin()) {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivityForResult(intent, 1111);
-            Log.d("asdf", "ㅈ2");
         }
         if(AccountData.getInstance().getUserSelected() != -1) {
             String name = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName();
