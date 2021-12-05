@@ -52,7 +52,7 @@ public class MyService extends Service {
                             ((MainActivity)MainActivity.mContext).stopService(sintent);
                             ((MainActivity)MainActivity.mContext).sleepScreen();// TestActivity(수면중 화면으로 넘어감)
                         }
-                    },3000);
+                    },5000);
                 }
                 GlobalVariable.getInstance().setYetSleep(false);
             }}, 30000); // n초 지연 후 알림 뜨게

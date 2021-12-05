@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
-                .setTimeoutAfter(8000) // 몇초후에 꺼질건지?
+                .setTimeoutAfter(30000) // 몇초후에 꺼질건지?
                 .addAction(android.R.drawable.ic_menu_close_clear_cancel, "안 자요", keepPendingIntent) // 알림창 버튼 등록
                 .addAction(android.R.drawable.ic_menu_close_clear_cancel, "수면모드 끄기", stopPendingIntent)
                 .setAutoCancel(true); // 알림 탭하면 알림 자동 삭제
