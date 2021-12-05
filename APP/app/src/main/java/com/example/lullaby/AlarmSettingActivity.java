@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -43,11 +44,14 @@ public class AlarmSettingActivity extends AppCompatActivity {
         scAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         scSpinner.setAdapter(scAdapter);
 
-        Button saveButton = findViewById(R.id.save);
+        Button saveButton = (Button) findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // 완료 눌렀을때 정보 저장
+                Log.d("asdf", "ㄹㅈㄷ알람");
+                Toast.makeText(getApplicationContext(), "알람 세팅이 저장되었습니다", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
         Button cancelButton = findViewById(R.id.cancel);
