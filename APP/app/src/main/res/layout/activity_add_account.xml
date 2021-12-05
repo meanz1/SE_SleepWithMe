@@ -12,7 +12,7 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="70dp"
             android:layout_marginLeft="130dp"
             android:text="계정 추가"
             android:textStyle="bold"
@@ -95,11 +95,10 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="400dp"
-            android:layout_height="600dp"
+            android:layout_width="550dp"
+            android:layout_height="700dp"
             android:orientation="vertical">
             <TextView
-                android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="취향선택(2개)"
@@ -108,22 +107,75 @@
                 >
             </TextView>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <Button
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ok_buttonshape"
-                    android:text="완료"
-                    android:textSize="25dp"
-                    ></Button>
+                    android:background="@drawable/animal"
+                    android:layout_margin="10dp">
+                </ImageButton>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/education"
+                    android:layout_margin="10dp">
+                </ImageButton>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/classic"
+                    android:layout_margin="10dp">
+                </ImageButton>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/jazz"
+                    android:layout_margin="10dp">
+                </ImageButton>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nature"
+                    android:layout_margin="10dp">
+                </ImageButton>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/daily"
+                    android:layout_margin="10dp">
+                </ImageButton>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp">
                 <Button
+                    android:id="@+id/add_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ok_buttonshape"
                     android:text="취소"
                     android:textColor="@color/red"
                     android:textSize="25dp"
+                    android:layout_margin="20dp"
+                    ></Button>
+                <Button
+                    android:id="@+id/add_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ok_buttonshape"
+                    android:text="완료"
+                    android:textSize="25dp"
+                    android:layout_margin="20dp"
                     ></Button>
             </LinearLayout>
         </LinearLayout>
