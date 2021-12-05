@@ -6,15 +6,26 @@
     android:padding="10dp"
     android:background="@drawable/back"
     >
-    <TextView
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="130dp"
-        android:text="알람"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="70dp" />
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="75dp"
+            android:background="@drawable/homebutton">
+        </ImageButton>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="75dp"
+            android:layout_marginLeft="30dp"
+            android:text="알람"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="70dp" />
+    </LinearLayout>
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -117,15 +128,6 @@
         android:layout_marginTop="110dp">
 
         <Button
-            android:id="@+id/save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="완료"
-            android:textSize="25dp"
-            android:background="@drawable/ok_buttonshape"
-            android:layout_marginHorizontal="50dp">
-        </Button>
-        <Button
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,6 +136,15 @@
             android:background="@drawable/ok_buttonshape"
             android:layout_marginHorizontal="50dp"
             android:textColor="@color/red">
+        </Button>
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="완료"
+            android:textSize="25dp"
+            android:background="@drawable/ok_buttonshape"
+            android:layout_marginHorizontal="50dp">
         </Button>
     </LinearLayout>
 

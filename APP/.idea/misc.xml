@@ -36,10 +36,10 @@
         <entry key="app/src/main/res/layout/activity_asmr_pager.xml" value="0.1629988809843335" />
         <entry key="app/src/main/res/layout/activity_asmr_video.xml" value="0.11540570175438597" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_medit_pager.xml" value="0.11540570175438597" />
         <entry key="app/src/main/res/layout/activity_music_pager.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_my_data.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_my_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_pager.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/layout/activity_screen_slide.xml" value="0.3159947984395319" />
         <entry key="app/src/main/res/layout/activity_select.xml" value="0.125" />

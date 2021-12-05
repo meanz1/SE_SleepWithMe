@@ -6,17 +6,28 @@
     android:padding="10dp"
     android:background="@drawable/back"
     >
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="130dp"
-        android:text="수면 스탬프"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="70dp" />
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/homebutton">
+        </ImageButton>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="10dp"
+            android:text="수면 스탬프"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="70dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="1000dp"
         android:layout_height="wrap_content"
         >
@@ -27,7 +38,7 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="30dp"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="70dp"
             />
         <Spinner
             android:background="@color/white"
@@ -52,7 +63,8 @@
             android:layout_marginLeft="10dp"
             android:layout_height="40dp"
             android:layout_weight="1" />
-        <TextView
+        <Button
+            android:id="@+id/stamp_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="수면 달성률"
@@ -68,15 +80,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/sleep_stamp">
+            android:id="@+id/stamp"
+            android:layout_width="520dp"
+            android:layout_height="450dp"
+            android:background="@drawable/sleep_stamp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="74%"
-            android:textSize="150dp">
+            android:textSize="140dp"
+            android:layout_margin="100dp"
+            android:textColor="@color/white">
         </TextView>
     </LinearLayout>
 </LinearLayout>
