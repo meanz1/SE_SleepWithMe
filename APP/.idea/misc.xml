@@ -3,23 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_account.xml" value="0.13212719298245615" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_add_account.xml" value="0.13212719298245615" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_alarm.xml" value="0.13212719298245615" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_alarm_setting.xml" value="0.13212719298245615" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_asmr_pager.xml" value="0.20052083333333334" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_login.xml" value="0.13212719298245615" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_medit_pager.xml" value="0.13212719298245615" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_music_pager.xml" value="0.13212719298245615" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_my_data.xml" value="0.13333333333333333" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_select.xml" value="0.20052083333333334" />
-        <entry key="..\:/SE/APP/app/src/main/res/layout/activity_signup.xml" value="0.13212719298245615" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.28671875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28671875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/on_off.xml" value="0.1546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/recommend_buttonshape.xml" value="0.28671875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/recommend_buttonshape2.xml" value="0.1546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_account.xml" value="0.135546875" />
+        <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_add_account.xml" value="0.2" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_login.xml" value="0.135546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_select.xml" value="0.18338815789473684" />
@@ -27,13 +17,14 @@
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_signup.xml" value="0.29734848484848486" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_test.xml" value="0.18338815789473684" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25277777777777777" />
+        <entry key="app/src/main/res/drawable/account_buttonshape.xml" value="0.18722222222222223" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24947916666666667" />
         <entry key="app/src/main/res/drawable/recommend_buttonshape.xml" value="0.24947916666666667" />
         <entry key="app/src/main/res/drawable/recommend_buttonshape2.xml" value="0.198828125" />
-        <entry key="app/src/main/res/layout/activity_account.xml" value="0.1318530701754386" />
+        <entry key="app/src/main/res/layout/activity_account.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_add_account.xml" value="0.1885245901639344" />
         <entry key="app/src/main/res/layout/activity_alarm.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_alarm_setting.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_alarm_setting.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_alert_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_asmr.xml" value="0.1897644927536232" />
         <entry key="app/src/main/res/layout/activity_asmr1.xml" value="0.17708333333333334" />
@@ -46,7 +37,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_medit_pager.xml" value="0.11540570175438597" />
         <entry key="app/src/main/res/layout/activity_music_pager.xml" value="0.11540570175438597" />
-        <entry key="app/src/main/res/layout/activity_my_data.xml" value="0.11842105263157894" />
+        <entry key="app/src/main/res/layout/activity_my_data.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_pager.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/layout/activity_screen_slide.xml" value="0.3159947984395319" />
         <entry key="app/src/main/res/layout/activity_select.xml" value="0.1" />
@@ -61,7 +52,9 @@
         <entry key="app/src/main/res/layout/fragment_music1.xml" value="0.11540570175438597" />
         <entry key="app/src/main/res/layout/fragment_music2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_screen_slide_page.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/item_profile.xml" value="0.14117324561403508" />
         <entry key="app/src/main/res/layout/pager/fragment_screen_slide_page.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/recyclerview_item.xml" value="0.335" />
       </map>
     </option>
   </component>

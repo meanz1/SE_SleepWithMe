@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.lullaby.data.GlobalVariable;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,6 +40,9 @@ public class AlarmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ringtone.stop();
                 achieve = true; // 일어났어요 -> 목표달성
+                ((MainActivity)MainActivity.mContext).toggleButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.off));
+                //unbindService(((MainActivity)MainActivity.mContext).conn); // 서비스 종료
+                //GlobalVariable.getInstance().getMs().onDestroy();
             }
         });
         Button keep_sleep_Button = findViewById(R.id.btn_keep_sleep);
@@ -46,6 +51,9 @@ public class AlarmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ringtone.stop();
                 achieve = false;
+                ((MainActivity)MainActivity.mContext).toggleButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.on));
+                //unbindService(((MainActivity)MainActivity.mContext).conn); // 서비스 종료
+                //GlobalVariable.getInstance().getMs().onDestroy();
             }
         });
         TextView nowTime = findViewById(R.id.now_time);
