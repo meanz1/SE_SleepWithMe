@@ -50,15 +50,16 @@ public class AlarmSettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                // 완료 눌렀을때 정보 저장
                 Log.d("asdf", "ㄹㅈㄷ알람");
-                Toast.makeText(getApplicationContext(), "알람 세팅이 저장되었습니다", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AlarmSettingActivity.this, "설정이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
         Button cancelButton = findViewById(R.id.cancel);
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 취소 눌렀을때
+                finish();
             }
         });
 

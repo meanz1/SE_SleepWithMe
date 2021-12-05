@@ -10,12 +10,14 @@
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/drawable/recommend_buttonshape2.xml" value="0.1546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_account.xml" value="0.135546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_add_account.xml" value="0.2" />
+        <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_alarm_setting.xml" value="0.111328125" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_login.xml" value="0.135546875" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_select.xml" value="0.18338815789473684" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_service_test.xml" value="0.14609375" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_signup.xml" value="0.29734848484848486" />
         <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/activity_test.xml" value="0.18338815789473684" />
+        <entry key="..\:/SE_SleepWithMe/APP/app/src/main/res/layout/sleep_dialog.xml" value="0.1078125" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/drawable/account_buttonshape.xml" value="0.18722222222222223" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24947916666666667" />

@@ -6,7 +6,7 @@ public class AccountData {
 
     private static AccountData accountData = null;
 
-    private int userSelected;
+    private int userSelected = -1;
     public ArrayList<Profile> profiles;
 
     AccountData() {

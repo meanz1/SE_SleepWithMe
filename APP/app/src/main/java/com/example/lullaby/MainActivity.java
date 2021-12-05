@@ -124,9 +124,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Log.d("asdf", "ㅈ1");
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivityForResult(intent, 1111);
-        Log.d("asdf", "ㅈ2");
+        if(!GlobalVariable.getInstance().getCheckLogin()) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivityForResult(intent, 1111);
+            Log.d("asdf", "ㅈ2");
+        }
+        if(AccountData.getInstance().getUserSelected() != -1) {
+            String name = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName();
+            TextView openingWord = findViewById(R.id.opening_word);
+            openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
+        }
     }
 
     @Override
@@ -134,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == 1111) {
             Log.d("asdf", "fwe");
+            GlobalVariable.getInstance().setCheckLogin(true);
             String name = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName();
             TextView openingWord = findViewById(R.id.opening_word);
             openingWord.setText(name + "님\n오늘도 좋은 밤 되세요.");
@@ -194,6 +202,10 @@ public class MainActivity extends AppCompatActivity {
         sleepDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         sleepDialog.setContentView(R.layout.sleep_dialog);
         sleepDialog.show();
+
+        TextView textView = sleepDialog.findViewById(R.id.dialogText);
+        textView.setText(AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName() + "님의 수면모드입니다.\n시작하시겠습니까?");
+
         Button yesButton = sleepDialog.findViewById(R.id.yesBtn);
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
                         getResources().getDrawable(R.drawable.off));
                 sleepDialog.dismiss();
                 Intent intent = new Intent(MainActivity.this, AccountActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1111);
             }
         });
     }
