@@ -21,7 +21,7 @@ public class MyService extends Service {
             public void run() {
                 sleepAlert();
             }
-        },10000);
+        },30000);
     }
     @Override
     public IBinder onBind(Intent intent) {
@@ -55,7 +55,7 @@ public class MyService extends Service {
                     },3000);
                 }
                 GlobalVariable.getInstance().setYetSleep(false);
-            }}, 10000); // n초 지연 후 알림 뜨게
+            }}, 30000); // n초 지연 후 알림 뜨게
     }
 
     @Override

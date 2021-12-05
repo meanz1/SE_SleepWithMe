@@ -35,7 +35,6 @@ public class MyDataActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Log.d("asdf", "fwe");
                 showData(yrSpinner, mSpinner);
             }
         });
@@ -48,6 +47,9 @@ public class MyDataActivity extends AppCompatActivity {
         if(year.equals("2021") && month.equals("11월")){
             ImageView stamp = (ImageView) findViewById(R.id.stamp);
             stamp.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.stamp_11));
+        } else if(year.equals("2021") && month.equals("12월")){
+            ImageView stamp = (ImageView) findViewById(R.id.stamp);
+            stamp.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.sleep_stamp));
         }
     }
 }

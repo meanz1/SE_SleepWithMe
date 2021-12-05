@@ -23,7 +23,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
                 public void run() {
                     GlobalVariable.getInstance().getMs().sleepAlert();
                 }
-            }, 10000);
+            }, 30000);
         }
         else if(intent.getAction() == "stop"){
             Toast.makeText(context, "수면모드 종료", Toast.LENGTH_LONG).show();
