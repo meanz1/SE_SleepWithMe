@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back"
+    android:orientation="vertical"
     tools:context=".videos.SelectActivity">
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="400dp"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="180dp"
             android:layout_marginBottom="70dp"
             android:text="어떤 영상을 보시겠어요?"
             android:textColor="@color/white"
@@ -27,14 +27,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn1"
-            android:text="ASMR"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_marginHorizontal="30dp"
@@ -43,13 +40,12 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            />
+            android:text="ASMR"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btn2"
-            android:text="MEDITATION"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_marginHorizontal="30dp"
@@ -58,13 +54,12 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            />
+            android:text="MEDITATION"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btn3"
-            android:text="MUSIC"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_marginHorizontal="30dp"
@@ -73,6 +68,8 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            />
+            android:text="MUSIC"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
     </LinearLayout>
 </LinearLayout>

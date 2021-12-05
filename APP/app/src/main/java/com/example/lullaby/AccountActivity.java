@@ -15,6 +15,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.lullaby.data.AccountData;
+import com.example.lullaby.login.LoginActivity;
 import com.example.lullaby.videos.SelectActivity;
 
 import java.util.ArrayList;
@@ -50,9 +51,11 @@ public class AccountActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "마지막 페이지",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), AddAccountActivity.class);
                     startActivity(intent);
-                }else {
+                } else {
                     AccountData.getInstance().setUserSelected(pos);
                     Toast.makeText(getApplicationContext(), AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getName(),Toast.LENGTH_SHORT).show();
+                    setResult(1111);
+                    finish();
                 }
             }
         }) ;

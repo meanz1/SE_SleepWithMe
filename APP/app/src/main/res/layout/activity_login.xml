@@ -36,7 +36,7 @@
             android:layout_marginBottom="10dp"
             android:background="@color/transparent_gray"
             android:hint="@string/hint_password"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:padding="10dp"
             android:textColorHint="@color/white"
             android:textAlignment="center"/>
