@@ -26,26 +26,26 @@ public class AsmrFragment1 extends Fragment implements View.OnClickListener{
         btn2.setOnClickListener(this);
         ImageButton btn3 = (ImageButton)view.findViewById(R.id.video3);
         btn3.setOnClickListener(this);
-        ImageButton btn4 = (ImageButton)view.findViewById(R.id.video4);
-        btn4.setOnClickListener(this);
+//        ImageButton btn4 = (ImageButton)view.findViewById(R.id.video4);
+//        btn4.setOnClickListener(this);
 
-        id[0] = "Fbz4GTDLLnQ";
+        id[0] = "200Evg4ndJk";
         id[1] = "-3hxDkxuyD4";
-        id[2] = "5QGxUg7MkHo";
+        id[2] = "q7tb1OciN_Y";
         id[3] = "vqE7WKq2S0k";
 
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[0] + "/default.jpg")
+                .load("https://i.ytimg.com/vi/" + id[0] + "/maxresdefault.jpg")
                 .into(btn1);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[1] + "/default.jpg")
+                .load("https://i.ytimg.com/vi/" + id[1] + "/maxresdefault.jpg")
                 .into(btn2);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[2] + "/default.jpg")
+                .load("https://i.ytimg.com/vi/" + id[2] + "/maxresdefault.jpg")
                 .into(btn3);
-        Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[3] + "/default.jpg")
-                .into(btn4);
+//        Glide.with(this)
+//                .load("https://img.youtube.com/vi/" + id[3] + "/default.jpg")
+//                .into(btn4);
 
         return view;
     }
@@ -63,9 +63,9 @@ public class AsmrFragment1 extends Fragment implements View.OnClickListener{
             case R.id.video3:
                 intent.putExtra("videoId", id[2]);
                 break;
-            case R.id.video4:
-                intent.putExtra("videoId", id[3]);
-                break;
+//            case R.id.video4:
+//                intent.putExtra("videoId", id[3]);
+//                break;
         }
         getActivity().startActivity(intent);
     }

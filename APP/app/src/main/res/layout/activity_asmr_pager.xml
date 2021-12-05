@@ -12,19 +12,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"/>
-
-    <TextView
-        android:id="@+id/text_view_id"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_margin="80dp"
-        android:textSize="36sp"
-        android:text="ASMR related to daily life"/>
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="75dp"
+            android:background="@drawable/homebutton">
+        </ImageButton>
+        <TextView
+            android:id="@+id/text_view_id"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="65sp"
+            android:text="ASMR"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pager"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_margin="20dp"/>
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_baseline_arrow_right_24"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

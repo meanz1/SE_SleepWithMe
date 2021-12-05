@@ -19,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_margin="80dp"
         android:textSize="36sp"
-        android:text="Meditation related to daily life"/>
+        android:text="Meditation related to daily life"
+        android:textColor="@color/white"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
