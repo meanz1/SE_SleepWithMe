@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import com.example.lullaby.data.AccountData;
+import com.example.lullaby.login.LoginActivity;
 import com.example.lullaby.login.SignUpActivity;
 import com.example.lullaby.network.ProfileNetworkTask;
 import com.example.lullaby.network.SignUpNetworkTask;
@@ -37,6 +38,12 @@ public class AddAccountActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                if (p_name.getText().toString().equals("")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AddAccountActivity.this);
+                    dialog = builder.setMessage("이름을 입력해주세요.").setNegativeButton("확인", null).create();
+                    dialog.show();
+                    return;
+                }
                 ContentValues values = new ContentValues();
                 values.put("id", AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getUserId());
                 values.put("name", p_name.getText().toString());
