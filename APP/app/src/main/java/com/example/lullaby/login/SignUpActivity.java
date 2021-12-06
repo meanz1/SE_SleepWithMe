@@ -19,7 +19,6 @@ public class SignUpActivity extends AppCompatActivity{
 
     public EditText sn_id, sn_pw, sn_pwcheck;
     public Button btn_signup, btn_back;
-    public static String id, pw, pwcheck;
     private AlertDialog dialog;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
