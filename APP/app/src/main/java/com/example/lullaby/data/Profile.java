@@ -87,5 +87,5 @@ public class Profile {
 
     public void setIteration(int iteration) { this.iteration = iteration; }
 
-    public void setMinWake(int min_wake) { this.minWake = min_wake; }
+    public void setMinWake(int minWake) { this.minWake = minWake; }
 }

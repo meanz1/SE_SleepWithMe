@@ -39,17 +39,17 @@ public class LoginNetworkTask extends AsyncTask<Void, Void, String> {
         int n = Integer.parseInt((arStr[0]));
         if(n < 1) return;
         for(int i = 0; i < n; i++) {
-            int idx = Integer.parseInt(arStr[7*i + 1]);
-            String userId = arStr[7*i + 2];
-            String name = arStr[7*i + 3];
-            String gender = arStr[7*i + 4];
-            int age = Integer.parseInt(arStr[7*i + 5]);
-            String category1 = arStr[7*i + 6];
-            String category2 = arStr[7*i + 7];
-            int targetSleep = Integer.parseInt(arStr[7*i + 8]);
-            int iteration = Integer.parseInt(arStr[7*i + 9]);
-            int frequency = Integer.parseInt(arStr[7*i + 10]);
-            int minWake = Integer.parseInt(arStr[7*i + 11]);
+            int idx = Integer.parseInt(arStr[11*i + 1]);
+            String userId = arStr[11*i + 2];
+            String name = arStr[11*i + 3];
+            String gender = arStr[11*i + 4];
+            int age = Integer.parseInt(arStr[11*i + 5]);
+            String category1 = arStr[11*i + 6];
+            String category2 = arStr[11*i + 7];
+            int targetSleep = Integer.parseInt(arStr[11*i + 8]);
+            int iteration = Integer.parseInt(arStr[11*i + 9]);
+            int frequency = Integer.parseInt(arStr[11*i + 10]);
+            int minWake = Integer.parseInt(arStr[11*i + 11]);
             AccountData.getInstance().profiles.add(new Profile(idx, userId, name, gender, age, category1, category2, targetSleep, iteration, frequency ,minWake));
         }
         AccountData.getInstance().setUserSelected(0);
