@@ -8,9 +8,14 @@ public class Profile {
     public int age;
     public String category1;
     public String category2;
+    public int targetSleep;
+    public int frequency;
+    public int iteration;
+    public int minWake;
 
     public Profile(){}
-    public Profile(int idx, String userId, String name, String gender, int age, String category1, String category2){
+    public Profile(int idx, String userId, String name, String gender, int age, String category1, String category2,
+                   int targetSleep, int frequency, int iteration, int minWake){
         this.idx = idx;
         this.userId = userId;
         this.name = name;
@@ -18,6 +23,10 @@ public class Profile {
         this.age = age;
         this.category1 = category1;
         this.category2 = category2;
+        this.targetSleep = targetSleep;
+        this.frequency = frequency;
+        this.iteration = iteration;
+        this.minWake = minWake;
     }
 
     public int getIdx() { return idx;}
@@ -39,6 +48,14 @@ public class Profile {
     public String getCategory1() { return category1; }
 
     public String getCategory2() { return category2; }
+
+    public int getTargetSleep() { return targetSleep; }
+
+    public int getFrequency() { return frequency; }
+
+    public int getIteration() { return iteration; }
+
+    public int getMinWake() { return minWake; }
 
     public void setName(String name){
         this.name = name;
@@ -63,4 +80,12 @@ public class Profile {
     public void setCategory2(String category2) {
         this.category2 = category2;
     }
+
+    public void setTargetSleep(int targetSleep) { this.targetSleep = targetSleep; }
+
+    public void setFrequency(int frequency ) { this.frequency = frequency; }
+
+    public void setIteration(int iteration) { this.iteration = iteration; }
+
+    public void setMinWake(int min_wake) { this.minWake = min_wake; }
 }

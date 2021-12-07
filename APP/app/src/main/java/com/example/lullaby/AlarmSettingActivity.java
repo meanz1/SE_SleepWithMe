@@ -1,10 +1,13 @@
 package com.example.lullaby;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,11 +15,17 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.lullaby.data.AccountData;
+import com.example.lullaby.network.ProfileNetworkTask;
+import com.example.lullaby.network.SettingNetworkTask;
+
 public class AlarmSettingActivity extends AppCompatActivity {
-    int sleep_time = 10000; // 기본 10초
-    int sleep_check_term = 10000;
+
+    private AlertDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_setting);
         //Spinner
@@ -49,7 +58,29 @@ public class AlarmSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                // 완료 눌렀을때 정보 저장
-                Log.d("asdf", "ㄹㅈㄷ알람");
+                AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).setTargetSleep(Integer.parseInt(tstSpinner.getSelectedItem().toString()));
+                AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).setIteration(Integer.parseInt(rpSpinner.getSelectedItem().toString()));
+                AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).setFrequency(Integer.parseInt(scSpinner.getSelectedItem().toString()));
+                AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).setMinWake(Integer.parseInt(mwSpinner.getSelectedItem().toString()));
+                ContentValues values = new ContentValues();
+                values.put("profile_idx", AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getIdx());
+                values.put("target_sleep", Integer.parseInt(tstSpinner.getSelectedItem().toString()));
+                values.put("iteration", Integer.parseInt(rpSpinner.getSelectedItem().toString()));
+                values.put("frequency", Integer.parseInt(scSpinner.getSelectedItem().toString()));
+                values.put("min_wake", Integer.parseInt(mwSpinner.getSelectedItem().toString()));
+                String url = "http://35.213.59.137/profile/sleep/edit";
+                SettingNetworkTask SettingNetworkTask = new SettingNetworkTask(url, values);
+                SettingNetworkTask.execute();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() { if(SettingNetworkTask.success) {
+                        finish();
+                    }
+                    else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AlarmSettingActivity.this);
+                        dialog = builder.setMessage("설정에 실패했습니다.").setNegativeButton("확인", null).create();
+                        dialog.show();}}
+                }, 300);
                 Toast.makeText(AlarmSettingActivity.this, "설정이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 finish();
             }
@@ -62,42 +93,5 @@ public class AlarmSettingActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-    }
-    public int getSleepTime(Spinner tstSpinner){
-        String sleepTime = tstSpinner.getSelectedItem().toString();
-        switch (sleepTime){
-            case "5시간":
-                sleep_time = 5000;
-                break;
-            case "6시간":
-                sleep_time = 6000;
-                break;
-            case "7시간":
-                sleep_time = 7000;
-                break;
-            case "8시간":
-                sleep_time = 8000;
-                break;
-        }
-        return sleep_time;
-    }
-    public int getSleepCheckTerm(Spinner scSpinner){
-        String sleepCheckTerm = scSpinner.getSelectedItem().toString();
-        switch (sleepCheckTerm){
-            case "20분":
-                sleep_check_term = 10000;
-                break;
-            case "30분":
-                sleep_check_term = 15000;
-                break;
-            case "40분":
-                sleep_check_term = 20000;
-                break;
-            case "50분":
-                sleep_check_term = 25000;
-                break;
-        }
-        return sleep_check_term;
     }
 }

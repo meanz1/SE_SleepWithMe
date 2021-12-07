@@ -46,7 +46,11 @@ public class LoginNetworkTask extends AsyncTask<Void, Void, String> {
             int age = Integer.parseInt(arStr[7*i + 5]);
             String category1 = arStr[7*i + 6];
             String category2 = arStr[7*i + 7];
-            AccountData.getInstance().profiles.add(new Profile(idx, userId, name, gender, age, category1, category2));
+            int targetSleep = Integer.parseInt(arStr[7*i + 8]);
+            int iteration = Integer.parseInt(arStr[7*i + 9]);
+            int frequency = Integer.parseInt(arStr[7*i + 10]);
+            int minWake = Integer.parseInt(arStr[7*i + 11]);
+            AccountData.getInstance().profiles.add(new Profile(idx, userId, name, gender, age, category1, category2, targetSleep, iteration, frequency ,minWake));
         }
         AccountData.getInstance().setUserSelected(0);
         success = true;
