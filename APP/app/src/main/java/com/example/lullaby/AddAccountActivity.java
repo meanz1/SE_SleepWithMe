@@ -29,6 +29,13 @@ public class AddAccountActivity extends AppCompatActivity {
     private ToggleButton toggleMan;
     private ToggleButton toggleWoman;
     private AlertDialog dialog;
+    private ToggleButton toggleAnimal;
+    private ToggleButton toggleEdu;
+    private ToggleButton toggleClassic;
+    private ToggleButton toggleJazz;
+    private ToggleButton toggleNature;
+    private ToggleButton toggleDaily;
+
     String gender = "남"; // 초기값 남자
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +115,72 @@ public class AddAccountActivity extends AppCompatActivity {
                     gender = "여";
                 } else {
                     toggleWoman.setBackgroundDrawable(getResources().getDrawable(R.drawable.ok_buttonshape));
+                }
+            }
+        });
+        toggleAnimal = (ToggleButton) this.findViewById(R.id.animal);
+        toggleEdu = (ToggleButton) this.findViewById(R.id.edu);
+        toggleClassic = (ToggleButton) this.findViewById(R.id.classic);
+        toggleJazz = (ToggleButton) this.findViewById(R.id.jazz);
+        toggleNature = (ToggleButton) this.findViewById(R.id.nature);
+        toggleDaily= (ToggleButton) this.findViewById(R.id.daily);
+        toggleAnimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toggleAnimal.isChecked()){
+                    toggleAnimal.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_animal));
+                }else{
+                    toggleAnimal.setBackgroundDrawable(getResources().getDrawable(R.drawable.animal));
+                }
+            }
+        });
+        toggleEdu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toggleEdu.isChecked()){
+                    toggleEdu.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_edu));
+                }else{
+                    toggleEdu.setBackgroundDrawable(getResources().getDrawable(R.drawable.education));
+                }
+            }
+        });
+        toggleClassic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toggleClassic.isChecked()){
+                    toggleClassic.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_classic));
+                }else{
+                    toggleClassic.setBackgroundDrawable(getResources().getDrawable(R.drawable.classic));
+                }
+            }
+        });
+        toggleJazz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toggleJazz.isChecked()){
+                    toggleJazz.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_jazz));
+                }else{
+                    toggleJazz.setBackgroundDrawable(getResources().getDrawable(R.drawable.jazz));
+                }
+            }
+        });
+        toggleNature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toggleNature.isChecked()){
+                    toggleNature.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_nature));
+                }else{
+                    toggleNature.setBackgroundDrawable(getResources().getDrawable(R.drawable.nature));
+                }
+            }
+        });
+        toggleDaily.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(toggleDaily.isChecked()){
+                    toggleDaily.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_daily));
+                }else{
+                    toggleDaily.setBackgroundDrawable(getResources().getDrawable(R.drawable.daily));
                 }
             }
         });

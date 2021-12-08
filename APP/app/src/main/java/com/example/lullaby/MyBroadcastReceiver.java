@@ -32,7 +32,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             ((MainActivity)MainActivity.mContext).toggleButton.setChecked(false);
             ((MainActivity)MainActivity.mContext).toggleButton.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.off));
             GlobalVariable.getInstance().setYetSleep(true);
-            GlobalVariable.getInstance().getMs().onDestroy();
+            ((MainActivity)MainActivity.mContext).serviceOff();
         }
     }
 }

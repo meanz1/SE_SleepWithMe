@@ -114,12 +114,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ToggleButton
+                    android:id="@+id/animal"
+                    android:textOn=""
+                    android:textOff=""
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/animal"
                     android:layout_margin="10dp">
                 </ToggleButton>
                 <ToggleButton
+                    android:id="@+id/edu"
+                    android:textOn=""
+                    android:textOff=""
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/education"
@@ -130,12 +136,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ToggleButton
+                    android:id="@+id/classic"
+                    android:textOn=""
+                    android:textOff=""
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/classic"
                     android:layout_margin="10dp">
                 </ToggleButton>
                 <ToggleButton
+                    android:id="@+id/jazz"
+                    android:textOn=""
+                    android:textOff=""
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/jazz"
@@ -146,12 +158,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ToggleButton
+                    android:id="@+id/nature"
+                    android:textOn=""
+                    android:textOff=""
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/nature"
                     android:layout_margin="10dp">
                 </ToggleButton>
                 <ToggleButton
+                    android:id="@+id/daily"
+                    android:textOn=""
+                    android:textOff=""
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/daily"

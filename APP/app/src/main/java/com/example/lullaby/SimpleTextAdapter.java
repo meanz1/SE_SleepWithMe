@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lullaby.data.AccountData;
@@ -79,6 +80,7 @@ public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.Vi
         String text = mData.get(position) ;
         holder.accountButton.setText(text) ;
     }
+
 
     // getItemCount() - 전체 데이터 갯수 리턴.
     @Override
