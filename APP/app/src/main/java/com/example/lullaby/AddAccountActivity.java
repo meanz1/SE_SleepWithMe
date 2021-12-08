@@ -61,10 +61,8 @@ public class AddAccountActivity extends AppCompatActivity {
                 ContentValues values = new ContentValues();
                 values.put("id", AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getUserId());
                 values.put("name", p_name.getText().toString());
-                //gender 하드코딩
                 values.put("gender", gender);
                 values.put("age", Integer.parseInt(brSpinner.getSelectedItem().toString()));
-                //category 하드코딩
                 values.put("category1", "동물");
                 values.put("category2", "일상");
                 String url = "http://35.213.59.137/profile/add";
@@ -79,7 +77,15 @@ public class AddAccountActivity extends AppCompatActivity {
                         AlertDialog.Builder builder = new AlertDialog.Builder(AddAccountActivity.this);
                         dialog = builder.setMessage("프로필 생성에 실패했습니다.").setNegativeButton("확인", null).create();
                         dialog.show();}}
-                }, 300);
+                }, 1000);
+            }
+        });
+
+        Button backButton = findViewById(R.id.add_cancel);
+        backButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
         toggleMan = (ToggleButton) this.findViewById(R.id.gender_man);

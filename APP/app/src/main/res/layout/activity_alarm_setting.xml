@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:text="목표 취침 시간"
+            android:text="목표 취침 시간(시간)"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="30dp"
@@ -43,7 +43,7 @@
         <TextView
             android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:text="최소 기상 시각"
+            android:text="최소 기상 시각(시)"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="30dp"
@@ -92,7 +92,7 @@
         <TextView
             android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:text="수면 여부 확인 주기"
+            android:text="수면 여부 확인 주기(분)"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="30dp"

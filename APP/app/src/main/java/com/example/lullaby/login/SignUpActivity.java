@@ -55,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity{
                     else {AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
                         dialog = builder.setMessage("동일한 아이디가 존재합니다.").setNegativeButton("확인", null).create();
                         dialog.show();}}
-                }, 200);
+                }, 1000);
             }
         });
         btn_back.setOnClickListener(new View.OnClickListener() {

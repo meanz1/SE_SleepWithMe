@@ -80,7 +80,7 @@ public class AlarmSettingActivity extends AppCompatActivity {
                         AlertDialog.Builder builder = new AlertDialog.Builder(AlarmSettingActivity.this);
                         dialog = builder.setMessage("설정에 실패했습니다.").setNegativeButton("확인", null).create();
                         dialog.show();}}
-                }, 300);
+                }, 1000);
                 Toast.makeText(AlarmSettingActivity.this, "설정이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 finish();
             }
