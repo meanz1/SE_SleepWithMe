@@ -15,7 +15,7 @@ public class Profile {
 
     public Profile(){}
     public Profile(int idx, String userId, String name, String gender, int age, String category1, String category2,
-                   int targetSleep, int frequency, int iteration, int minWake){
+                   int targetSleep, int iteration, int frequency, int minWake){
         this.idx = idx;
         this.userId = userId;
         this.name = name;
