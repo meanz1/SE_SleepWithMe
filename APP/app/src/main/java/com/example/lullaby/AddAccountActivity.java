@@ -19,11 +19,14 @@ import android.widget.ToggleButton;
 
 import com.example.lullaby.data.AccountData;
 import com.example.lullaby.data.GlobalVariable;
+import com.example.lullaby.data.Profile;
 import com.example.lullaby.login.LoginActivity;
 import com.example.lullaby.login.SignUpActivity;
 import com.example.lullaby.network.ProfileNetworkTask;
 import com.example.lullaby.network.SignUpNetworkTask;
 import com.example.lullaby.videos.SelectActivity;
+
+import java.util.ArrayList;
 
 public class AddAccountActivity extends AppCompatActivity {
     private ToggleButton toggleMan;
@@ -35,6 +38,7 @@ public class AddAccountActivity extends AppCompatActivity {
     private ToggleButton toggleJazz;
     private ToggleButton toggleNature;
     private ToggleButton toggleDaily;
+    public ArrayList<String> category = new ArrayList<String>();
 
     String gender = "남"; // 초기값 남자
     @Override
@@ -58,14 +62,21 @@ public class AddAccountActivity extends AppCompatActivity {
                     dialog.show();
                     return;
                 }
+                if (category.size() != 2) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AddAccountActivity.this);
+                    dialog = builder.setMessage("2개의 카테고리를 선택해주세요.").setNegativeButton("확인", null).create();
+                    dialog.show();
+                    return;
+                }
                 ContentValues values = new ContentValues();
                 values.put("id", AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getUserId());
                 values.put("name", p_name.getText().toString());
                 values.put("gender", gender);
                 values.put("age", Integer.parseInt(brSpinner.getSelectedItem().toString()));
-                values.put("category1", "동물");
-                values.put("category2", "일상");
+                values.put("category1", category.get(0));
+                values.put("category2", category.get(1));
                 String url = "http://35.213.59.137/profile/add";
+                category.clear();
                 ProfileNetworkTask ProfileNetworkTask = new ProfileNetworkTask(url, values);
                 ProfileNetworkTask.execute();
                 new Handler().postDelayed(new Runnable() {
@@ -135,8 +146,10 @@ public class AddAccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(toggleAnimal.isChecked()){
                     toggleAnimal.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_animal));
+                    category.add("동물");
                 }else{
                     toggleAnimal.setBackgroundDrawable(getResources().getDrawable(R.drawable.animal));
+                    category.remove("동물");
                 }
             }
         });
@@ -145,8 +158,10 @@ public class AddAccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(toggleEdu.isChecked()){
                     toggleEdu.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_edu));
+                    category.add("교육");
                 }else{
                     toggleEdu.setBackgroundDrawable(getResources().getDrawable(R.drawable.education));
+                    category.remove("교육");
                 }
             }
         });
@@ -155,8 +170,10 @@ public class AddAccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(toggleClassic.isChecked()){
                     toggleClassic.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_classic));
+                    category.add("클래식");
                 }else{
                     toggleClassic.setBackgroundDrawable(getResources().getDrawable(R.drawable.classic));
+                    category.remove("클래식");
                 }
             }
         });
@@ -165,8 +182,10 @@ public class AddAccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(toggleJazz.isChecked()){
                     toggleJazz.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_jazz));
+                    category.add("재즈");
                 }else{
                     toggleJazz.setBackgroundDrawable(getResources().getDrawable(R.drawable.jazz));
+                    category.remove("재즈");
                 }
             }
         });
@@ -175,8 +194,10 @@ public class AddAccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(toggleNature.isChecked()){
                     toggleNature.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_nature));
+                    category.add("자연");
                 }else{
                     toggleNature.setBackgroundDrawable(getResources().getDrawable(R.drawable.nature));
+                    category.remove("자연");
                 }
             }
         });
@@ -185,8 +206,10 @@ public class AddAccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(toggleDaily.isChecked()){
                     toggleDaily.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_daily));
+                    category.add("일상");
                 }else{
                     toggleDaily.setBackgroundDrawable(getResources().getDrawable(R.drawable.daily));
+                    category.remove("일상");
                 }
             }
         });

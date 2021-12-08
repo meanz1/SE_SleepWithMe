@@ -34,24 +34,28 @@ public class AlarmSettingActivity extends AppCompatActivity {
                 R.array.target_sleep_time, android.R.layout.simple_spinner_item);
         tstAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tstSpinner.setAdapter(tstAdapter);
+        tstSpinner.setSelection(AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getTargetSleep()-5);
 
         Spinner mwSpinner = (Spinner)findViewById(R.id.min_wakeup);
         ArrayAdapter mwAdapter = ArrayAdapter.createFromResource(this,
                 R.array.min_wakeup, android.R.layout.simple_spinner_item);
         mwAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mwSpinner.setAdapter(mwAdapter);
+        mwSpinner.setSelection(AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getMinWake()-6);
 
         Spinner rpSpinner = (Spinner)findViewById(R.id.repeat_term);
         ArrayAdapter rpAdapter = ArrayAdapter.createFromResource(this,
                 R.array.repeat_term, android.R.layout.simple_spinner_item);
         rpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rpSpinner.setAdapter(rpAdapter);
+        rpSpinner.setSelection(AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getIteration());
 
         Spinner scSpinner = (Spinner)findViewById(R.id.sleep_check_term);
         ArrayAdapter scAdapter = ArrayAdapter.createFromResource(this,
                 R.array.sleep_check_term, android.R.layout.simple_spinner_item);
         scAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         scSpinner.setAdapter(scAdapter);
+        scSpinner.setSelection(AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getFrequency()/10 - 2);
 
         Button saveButton = (Button) findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
