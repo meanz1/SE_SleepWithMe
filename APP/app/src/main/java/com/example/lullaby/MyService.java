@@ -14,7 +14,7 @@ import com.example.lullaby.data.GlobalVariable;
 
 public class MyService extends Service {
     IBinder mBinder = new MyBinder();
-    private int frequency = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getFrequency() * 1000; // 시연시 10분 -> 10초로 나오게
+    private int frequency = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getFrequency() * 100; // 시연시 10분 -> 10초로 나오게
     private int targetTime = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getTargetSleep() * 1000; // 시연시 1시간 -> 1초로 나오게
     @Override
     public void onCreate(){

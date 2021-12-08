@@ -44,22 +44,25 @@ public class MainActivity extends AppCompatActivity {
     public ToggleButton toggleButton;
     AlarmManager alarmManager;
 
-    ServiceConnection conn = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            MyBinder mb = (MyBinder) service;
-            GlobalVariable.getInstance().setMs(mb.getService());
-            isService = true;
-        }
+    ServiceConnection conn;
 
-        @Override
-        public void onServiceDisconnected(ComponentName name) {// 서비스와 연결 끊겼을때
-            isService = false;
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("asdf", "onCreate MainActivity");
+        conn = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                MyBinder mb = (MyBinder) service;
+                GlobalVariable.getInstance().setMs(mb.getService());
+                isService = true;
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {// 서비스와 연결 끊겼을때
+                isService = false;
+            }
+        };
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         //create NotiChannel
         createNotificationChannel(DEFAULT, "default channel", NotificationManager.IMPORTANCE_HIGH);
@@ -75,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                     showDialog();
                     //Intent intent = new Intent(MainActivity.this,MyService.class);
                     //bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
-                    Log.v("asdf","연결하는중");
                     toggleButton.setBackgroundDrawable(
                             getResources().getDrawable(R.drawable.on)
                     );
@@ -209,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "수면모드 시작", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,MyService.class);
                 serviceOn();
                 sleepDialog.dismiss();
             }
@@ -230,6 +233,9 @@ public class MainActivity extends AppCompatActivity {
     void serviceOn(){
         Intent intent = new Intent(MainActivity.this, MyService.class);
         bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
+    }
+    void serviceOff(){
+        unbindService(conn);
     }
     void showAlarm(int targetTime){
         Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);

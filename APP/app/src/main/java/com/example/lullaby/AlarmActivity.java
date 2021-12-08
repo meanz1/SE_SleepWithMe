@@ -41,6 +41,7 @@ public class AlarmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ringtone.stop();
                 achieve = true; // 일어났어요 -> 목표달성
+                ((MainActivity)MainActivity.mContext).serviceOff();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
@@ -51,6 +52,7 @@ public class AlarmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ringtone.stop();
                 achieve = false;
+                ((MainActivity)MainActivity.mContext).serviceOff();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
