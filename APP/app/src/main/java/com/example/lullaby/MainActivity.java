@@ -190,10 +190,10 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(id);
     }
-    void sleepScreen(){ // 수면중 화면
+    void sleepScreen(int targetTime){ // 수면중 화면
         Intent intent = new Intent(getApplicationContext(), SleepActivity.class);
         startActivity(intent);
-        showAlarm();
+        showAlarm(targetTime);
     }
     void showDialog() {
         Dialog sleepDialog = new Dialog(MainActivity.this);
@@ -231,14 +231,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, MyService.class);
         bindService(intent, conn, Context.BIND_AUTO_CREATE); // 서비스 연결
     }
-    void showAlarm(){
-        int time = 30000;
+    void showAlarm(int targetTime){
         Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 10, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+time, pendingIntent);//10초후알람
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+targetTime, pendingIntent);//10초후알람
         }else{
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+time,pendingIntent);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+targetTime,pendingIntent);
         }
     }
     

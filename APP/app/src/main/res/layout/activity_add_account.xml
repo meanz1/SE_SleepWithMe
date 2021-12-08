@@ -57,27 +57,31 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <Button
+                <ToggleButton
+                    android:id = "@+id/gender_man"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ok_buttonshape"
-                    android:text="남"
+                    android:textOff="남"
+                    android:textOn="남"
                     android:textSize="25dp"
                     android:layout_marginRight="20dp"
-                    ></Button>
-                <Button
+                    ></ToggleButton>
+                <ToggleButton
+                    android:id = "@+id/gender_woman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ok_buttonshape"
-                    android:text="여"
+                    android:textOff="여"
+                    android:textOn="여"
                     android:textSize="25dp"
-                    ></Button>
+                    ></ToggleButton>
             </LinearLayout>
             <TextView
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="생년월일"
+                android:text="나이"
                 android:textColor="@color/white"
                 android:textSize="35dp"
                 >
@@ -109,50 +113,50 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageButton
+                <ToggleButton
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/animal"
                     android:layout_margin="10dp">
-                </ImageButton>
-                <ImageButton
+                </ToggleButton>
+                <ToggleButton
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/education"
                     android:layout_margin="10dp">
-                </ImageButton>
+                </ToggleButton>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageButton
+                <ToggleButton
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/classic"
                     android:layout_margin="10dp">
-                </ImageButton>
-                <ImageButton
+                </ToggleButton>
+                <ToggleButton
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/jazz"
                     android:layout_margin="10dp">
-                </ImageButton>
+                </ToggleButton>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageButton
+                <ToggleButton
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/nature"
                     android:layout_margin="10dp">
-                </ImageButton>
-                <ImageButton
+                </ToggleButton>
+                <ToggleButton
                     android:layout_width="200dp"
                     android:layout_height="110dp"
                     android:background="@drawable/daily"
                     android:layout_margin="10dp">
-                </ImageButton>
+                </ToggleButton>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"

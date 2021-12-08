@@ -1,5 +1,6 @@
 package com.example.lullaby;
 
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -8,10 +9,13 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.lullaby.data.AccountData;
 import com.example.lullaby.data.GlobalVariable;
 
 public class MyService extends Service {
     IBinder mBinder = new MyBinder();
+    private int frequency = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getFrequency() * 1000; // 시연시 10분 -> 10초로 나오게
+    private int targetTime = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getTargetSleep() * 1000; // 시연시 1시간 -> 1초로 나오게
     @Override
     public void onCreate(){
         super.onCreate();
@@ -20,8 +24,9 @@ public class MyService extends Service {
             @Override
             public void run() {
                 sleepAlert();
+                Log.d("몇초뒤에뜨" , Integer.toString(targetTime));
             }
-        },30000);
+        }, frequency);
     }
     @Override
     public IBinder onBind(Intent intent) {
@@ -50,12 +55,12 @@ public class MyService extends Service {
                         public void run() {
                             Intent sintent = new Intent(((MainActivity)MainActivity.mContext),MyService.class);
                             ((MainActivity)MainActivity.mContext).stopService(sintent);
-                            ((MainActivity)MainActivity.mContext).sleepScreen();// TestActivity(수면중 화면으로 넘어감)
+                            ((MainActivity)MainActivity.mContext).sleepScreen(targetTime);// 수면중 화면으로 넘어감
                         }
-                    },5000);
+                    },5000); // 화면이곧꺼집니다 알림후 5초뒤
                 }
                 GlobalVariable.getInstance().setYetSleep(false);
-            }}, 30000); // n초 지연 후 알림 뜨게
+            }}, frequency); // n초 지연 후 알림 뜨게
     }
 
     @Override

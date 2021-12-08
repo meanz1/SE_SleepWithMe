@@ -62,7 +62,6 @@ public class AccountActivity extends AppCompatActivity {
             public void onItemClick(View v, int pos) {
                 // TODO : 아이템 클릭 이벤트를 MainActivity에서 처리.
                 if (pos == AccountData.getInstance().profiles.size()){
-                    Toast.makeText(getApplicationContext(), "마지막 페이지",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), AddAccountActivity.class);
                     startActivity(intent);
                 } else {
