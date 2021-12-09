@@ -42,8 +42,8 @@ app.post('/signup', (req, res) => {
         else {
             // default profile 추가
             con.query(`INSERT INTO profile (user_id, name, gender, age, category1, category2) VALUES (\'${id}\', '김한양', '남', 30, '자연', '일상');`, (err) => {
-                if(err) res.send('[/signup] fail');
-                else res.send('[/signup] success');
+                if(err) res.send('-1');
+                else res.send('1');
             });
         }
     });
@@ -69,7 +69,7 @@ app.post('/login', (req, res) => {
                 else {
                     var result = rows.length + " ";
                     for(var i=0; i<rows.length; i++){
-                        result = result + rows[i].profile_idx + " " + rows[i].user_id + " " + rows[i].name + " " + rows[i].gender + " " + rows[i].age + " " + rows[i].category1 + " " + rows[i].category2 + " ";
+                        result = result + rows[i].profile_idx + " " + rows[i].user_id + " " + rows[i].name + " " + rows[i].gender + " " + rows[i].age + " " + rows[i].category1 + " " + rows[i].category2 + " " + rows[i].target_sleep + " " + rows[i].iteration + " " + rows[i].frequency + " " + rows[i].min_wake + " ";
                     }
                     console.log(result);
                     console.log("login success");
@@ -88,8 +88,19 @@ app.post('/profile/add', (req, res) => {
 
     // profile 추가
     con.query(`INSERT INTO profile (user_id, name, gender, age, category1, category2) VALUES (\'${id}\', \'${name}\', \'${gender}\', ${age}, \'${category1}\', \'${category2}\');`, (err) => {
-        if(err) res.send('[/profile/add] fail');
-        else res.send('[/profile/add] success');
+        if(err) res.send('-1');
+        else { 
+            con.query(`SELECT * FROM profile WHERE user_id=\'${id}\' AND name=\'${name}\'`, (err, rows) => {
+                if(err) res.send('-1');
+                else if(isEmptyArr(rows)) res.send('-1');
+                else if(isEmpty(rows[0].profile_idx)) res.send('-1');
+                else {
+                    var result = rows[0].profile_idx + " " + rows[0].user_id + " " + rows[0].name + " " + rows[0].gender + " " + rows[0].age + " " + rows[0].category1 + " " + rows[0].category2 + " " + rows[0].target_sleep + " " + rows[0].iteration + " " + rows[0].frequency + " " + rows[0].min_wake + " ";
+                    console.log(result);
+                    res.send(result);
+                }   
+            })
+        }
     });
 });
 
@@ -109,6 +120,21 @@ app.post('/profile/edit', (req, res) => {
     });
 });
 
+// 프로필 수면시간 수정: profile_idx, target_sleep, iteration, frequency, min_wake -> profile 수정
+app.post('/profile/sleep/edit', (req, res) => {
+    var profile_idx = req.query.profile_idx;
+    var target_sleep = req.query.target_sleep;
+    var iteration = req.query.iteration;
+    var frequency = req.query.frequency;
+    var min_wake = req.query.min_wake;
+    
+    // profile 수정
+    con.query(`UPDATE profile SET target_sleep=\'${target_sleep}\', iteration=\'${iteration}\', frequency=${frequency}, min_wake=\'${min_wake}\' WHERE profile_idx=${profile_idx};`, (err) => {
+        if(err) res.send('-1');
+        else res.send('1');
+    });
+});
+
 // 프로필 불러오기: profile_idx -> profile (해당 프로필)
 app.post('/profile/load', (req, res) => {
     var profile_idx = req.query.profile_idx;
@@ -119,7 +145,7 @@ app.post('/profile/load', (req, res) => {
         else if(isEmptyArr(row)) res.send('[/profile/load] fail');
         else if(isEmpty(row[0].profile_idx)) res.send('[/profile/load] fail');
         else {
-            var result = row[0].profile_idx + " " + row[0].user_id + " " + row[0].name + " " + row[0].gender + " " + row[0].age + " " + row[0].category1 + " " + row[0].category2;
+            var result = rows[i].profile_idx + " " + rows[i].user_id + " " + rows[i].name + " " + rows[i].gender + " " + rows[i].age + " " + rows[i].category1 + " " + rows[i].category2 + " " + rows[i].target_sleep + " " + rows[i].iteration + " " + rows[i].frequency + " " + rows[i].min_wake + " ";
             res.send(result);
         }
     });
@@ -136,7 +162,7 @@ app.post('/profile/select', (req, res) => {
         else if(isEmptyArr(row)) res.send('[/profile/select] fail');
         else if(isEmpty(row[0].profile_idx)) res.send('[/profile/select] fail');
         else {
-            var result = row[0].profile_idx + " " + row[0].user_id + " " + row[0].name + " " + row[0].gender + " " + row[0].age + " " + row[0].category1 + " " + row[0].category2;
+            var result = rows[i].profile_idx + " " + rows[i].user_id + " " + rows[i].name + " " + rows[i].gender + " " + rows[i].age + " " + rows[i].category1 + " " + rows[i].category2 + " " + rows[i].target_sleep + " " + rows[i].iteration + " " + rows[i].frequency + " " + rows[i].min_wake + " ";
             res.send(result);
         }
     });
