@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.lullaby.R;
 
 public class MeditFragment1 extends Fragment implements View.OnClickListener{
-    public String[] id = new String[4];
+    public String[] id = new String[3];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,26 +26,20 @@ public class MeditFragment1 extends Fragment implements View.OnClickListener{
         btn2.setOnClickListener(this);
         ImageButton btn3 = (ImageButton)view.findViewById(R.id.video3);
         btn3.setOnClickListener(this);
-        ImageButton btn4 = (ImageButton)view.findViewById(R.id.video4);
-        btn4.setOnClickListener(this);
 
         id[0] = "BR4WG1XlLZw";
         id[1] = "TsZ6K6RLb-4";
         id[2] = "Fkf9dpdoDUs";
-        id[3] = "iHCCwk3CV70";
 
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[0] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[0] + "/maxresdefault.jpg")
                 .into(btn1);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[1] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[1] + "/maxresdefault.jpg")
                 .into(btn2);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[2] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[2] + "/maxresdefault.jpg")
                 .into(btn3);
-        Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[3] + "/default.jpg")
-                .into(btn4);
 
         return view;
     }
@@ -62,9 +56,6 @@ public class MeditFragment1 extends Fragment implements View.OnClickListener{
                 break;
             case R.id.video3:
                 intent.putExtra("videoId", id[2]);
-                break;
-            case R.id.video4:
-                intent.putExtra("videoId", id[3]);
                 break;
         }
         getActivity().startActivity(intent);

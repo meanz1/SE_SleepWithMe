@@ -32,6 +32,17 @@
             android:text="ASMR"
             android:textColor="@color/white"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/asmr_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기본 ASMR"
+        android:textStyle="italic"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="10dp">
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"

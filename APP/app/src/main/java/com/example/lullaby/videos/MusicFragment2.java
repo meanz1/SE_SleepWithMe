@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.lullaby.R;
+import com.example.lullaby.data.AccountData;
 
 public class MusicFragment2 extends Fragment implements View.OnClickListener{
-    public String[] id = new String[4];
+    public String[] id = new String[3];
+    public String[] cla_id = new String[3];
+    public String[] jaz_id = new String[3];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,26 +30,37 @@ public class MusicFragment2 extends Fragment implements View.OnClickListener{
         btn2.setOnClickListener(this);
         ImageButton btn3 = (ImageButton)view.findViewById(R.id.video7);
         btn3.setOnClickListener(this);
-        ImageButton btn4 = (ImageButton)view.findViewById(R.id.video8);
-        btn4.setOnClickListener(this);
 
-        id[0] = "Af_VpSwsEKo";
-        id[1] = "rcfbOtMeNFI";
+        id[0] = "JMjQP66TXzg"; // 기본
+        id[1] = "X901on9pDEo";
         id[2] = "DZEgZE7kOnc";
-        id[3] = "XghIuS2zRYY";
+
+        cla_id[0] = "KD2EiaIwTH4";
+        cla_id[1] = "rcfbOtMeNFI";
+        cla_id[2] = "iuVPO3164XE";
+
+        jaz_id[0] = "ZokKDy-cQSs";
+        jaz_id[1] = "9GaRkarLl_I";
+        jaz_id[2] = "BjuNUDV7PO4";
+
+        switch (AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getCategory2()){
+            case "클래식":
+                id = cla_id;
+                break;
+            case "재즈":
+                id = jaz_id;
+                break;
+        }
 
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[0] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[0] + "/maxresdefault.jpg")
                 .into(btn1);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[1] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[1] + "/maxresdefault.jpg")
                 .into(btn2);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[2] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[2] + "/maxresdefault.jpg")
                 .into(btn3);
-        Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[3] + "/default.jpg")
-                .into(btn4);
 
         return view;
     }
@@ -63,9 +77,6 @@ public class MusicFragment2 extends Fragment implements View.OnClickListener{
                 break;
             case R.id.video7:
                 intent.putExtra("videoId", id[2]);
-                break;
-            case R.id.video8:
-                intent.putExtra("videoId", id[3]);
                 break;
         }
         getActivity().startActivity(intent);

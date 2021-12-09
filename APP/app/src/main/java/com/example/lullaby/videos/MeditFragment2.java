@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.lullaby.R;
 
 public class MeditFragment2 extends Fragment implements View.OnClickListener{
-    public String[] id = new String[4];
+    public String[] id = new String[3];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,26 +27,21 @@ public class MeditFragment2 extends Fragment implements View.OnClickListener{
         btn2.setOnClickListener(this);
         ImageButton btn3 = (ImageButton)view.findViewById(R.id.video7);
         btn3.setOnClickListener(this);
-        ImageButton btn4 = (ImageButton)view.findViewById(R.id.video8);
-        btn4.setOnClickListener(this);
 
         id[0] = "TRQV5h0XMns";
         id[1] = "OKKEISVu0ao";
         id[2] = "PbNt1N-QB54";
-        id[3] = "4M-cCdsciHc";
+
 
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[0] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[0] + "/maxresdefault.jpg")
                 .into(btn1);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[1] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[1] + "/maxresdefault.jpg")
                 .into(btn2);
         Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[2] + "/default.jpg")
+                .load("https://img.youtube.com/vi/" + id[2] + "/maxresdefault.jpg")
                 .into(btn3);
-        Glide.with(this)
-                .load("https://img.youtube.com/vi/" + id[3] + "/default.jpg")
-                .into(btn4);
 
         return view;
     }
@@ -64,9 +59,7 @@ public class MeditFragment2 extends Fragment implements View.OnClickListener{
             case R.id.video7:
                 intent.putExtra("videoId", id[2]);
                 break;
-            case R.id.video8:
-                intent.putExtra("videoId", id[3]);
-                break;
+
         }
         getActivity().startActivity(intent);
     }

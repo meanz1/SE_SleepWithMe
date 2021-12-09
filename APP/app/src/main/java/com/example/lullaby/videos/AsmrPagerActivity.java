@@ -1,12 +1,19 @@
 package com.example.lullaby.videos;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.lullaby.R;
+import com.example.lullaby.data.AccountData;
+import com.example.lullaby.data.GlobalVariable;
 
 public class AsmrPagerActivity extends FragmentActivity {
     /**
@@ -25,6 +32,7 @@ public class AsmrPagerActivity extends FragmentActivity {
      */
     private FragmentStateAdapter pagerAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +42,22 @@ public class AsmrPagerActivity extends FragmentActivity {
         viewPager = findViewById(R.id.pager);
         pagerAdapter = new AsmrPagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
+        String category1 = new String();
+        String category2 = new String();
+        category1 = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getCategory1();
+        category2 = AccountData.getInstance().profiles.get(AccountData.getInstance().getUserSelected()).getCategory2();
+        if(category1.contains("재즈")||category1.contains("클래식")){
+            category1 = "기본";
+        }
+        if(category2.contains("재즈")||category2.contains("클래식")){
+            category2 = "기본";
+        }
+
+        if(category1.equals("기본")&& category2.equals("기본"))
+            category2 = "";
+
+        TextView asmrCate = findViewById(R.id.asmr_category);
+        asmrCate.setText("Category | " + category1 + " " + category2);
     }
 
     @Override
