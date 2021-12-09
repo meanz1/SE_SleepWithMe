@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"수면모드 종료",Toast.LENGTH_SHORT).show();
                     GlobalVariable.getInstance().setYetSleep(true); // 화면꺼짐 실행안되게
                     unbindService(conn); // 서비스 종료
-                    GlobalVariable.getInstance().getMs().onDestroy();
                     toggleButton.setBackgroundDrawable(
                             getResources().
                                     getDrawable(R.drawable.off)
@@ -211,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "수면모드 시작", Toast.LENGTH_SHORT).show();
+                GlobalVariable.getInstance().setYetSleep(false);
                 Intent intent = new Intent(MainActivity.this,MyService.class);
                 serviceOn();
                 sleepDialog.dismiss();

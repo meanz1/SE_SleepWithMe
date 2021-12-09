@@ -23,8 +23,11 @@ public class MyService extends Service {
         delay_handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                sleepAlert();
-                Log.d("몇초뒤에뜨" , Integer.toString(targetTime));
+                if(!GlobalVariable.getInstance().getYetSleep()){
+                    sleepAlert();
+                    Log.d("몇초뒤에뜨" , Integer.toString(targetTime));
+                }
+
             }
         }, frequency);
     }

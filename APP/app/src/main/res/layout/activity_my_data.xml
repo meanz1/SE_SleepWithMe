@@ -89,11 +89,12 @@
         </ImageView>
 
         <TextView
+            android:id = "@+id/percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="125dp"
-            android:text="74%"
+            android:text="81%"
             android:textColor="@color/white"
             android:textSize="140dp"></TextView>
     </LinearLayout>

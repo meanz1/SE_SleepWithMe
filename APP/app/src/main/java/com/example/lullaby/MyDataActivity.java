@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.lullaby.videos.SelectActivity;
 
@@ -47,9 +48,13 @@ public class MyDataActivity extends AppCompatActivity {
         if(year.equals("2021") && month.equals("11월")){
             ImageView stamp = (ImageView) findViewById(R.id.stamp);
             stamp.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.stamp_11));
+            TextView percent = (TextView) findViewById(R.id.percent);
+            percent.setText("74%");
         } else if(year.equals("2021") && month.equals("12월")){
             ImageView stamp = (ImageView) findViewById(R.id.stamp);
             stamp.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.sleep_stamp));
+            TextView percent = (TextView) findViewById(R.id.percent);
+            percent.setText("81%");
         }
     }
 }
